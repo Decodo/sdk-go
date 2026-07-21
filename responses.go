@@ -6,8 +6,8 @@ type ResultEntry struct {
 	StatusCode             int                 `json:"status_code"`
 	URL                    string              `json:"url,omitempty"`
 	TaskID                 string              `json:"task_id"`
-	Headers                map[string]string   `json:"headers,omitempty"`
-	Cookies                []map[string]string `json:"cookies,omitempty"`
+	Headers                map[string]interface{}   `json:"headers,omitempty"`
+	Cookies                interface{}              `json:"cookies,omitempty"`
 	CreatedAt              string              `json:"created_at"`
 	UpdatedAt              string              `json:"updated_at"`
 	Help                   string              `json:"help,omitempty"`
