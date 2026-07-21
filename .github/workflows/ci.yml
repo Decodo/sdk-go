@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.21'
+          cache: true
+
+      - name: Download dependencies
+        run: go mod download
+
+      - name: Vet
+        run: go vet ./...
+
+      - name: golangci-lint
+        uses: golangci/golangci-lint-action@v6
+        with:
+          version: latest
+          args: --timeout=5m
+
+      - name: Test
+        run: go test ./...
+
+      - name: Build SDK
+        run: go build ./...
+
+      - name: Build examples
+        run: |
+          for dir in examples/web_scraping_api/*/; do
+            [ -f "${dir}main.go" ] && go build "./${dir}"
+          done
+          for dir in examples/web_scraping_api/*/*/; do
+            [ -f "${dir}main.go" ] && go build "./${dir}"
+          done
