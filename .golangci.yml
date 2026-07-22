@@ -1,0 +1,16 @@
+run:
+  timeout: 5m
+
+linters:
+  disable-all: true
+  enable:
+    - govet
+    - staticcheck
+    - misspell
+    - gofmt
+    - errcheck
+
+issues:
+  exclude-dirs:
+    - examples
+    - cmd
