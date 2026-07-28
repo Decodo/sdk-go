@@ -19,6 +19,9 @@ jobs:
       - name: Download dependencies
         run: go mod download
 
+      - name: Run codegen
+        run: go run ./cmd/codegen
+
       - name: Vet
         run: go vet ./...
 

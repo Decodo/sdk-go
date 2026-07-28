@@ -10,6 +10,21 @@ go get github.com/decodo/sdk-go
 
 **Requires Go 1.21+**
 
+## Generate types
+
+After cloning the repository, run the type generator to create typed target parameters:
+
+```bash
+go run ./cmd/codegen
+```
+
+This fetches the latest API schema from the Decodo registry and writes:
+- `targets.go` — committed file with the `Target` enum and all target constants
+- `generated_params.go` — gitignored file with typed parameter structs for each target
+- `generated_parameters.go` — gitignored file with parameter metadata
+
+Re-run this command whenever Decodo publishes an updated schema to pick up new targets or changed parameters.
+
 ## Quick Start
 
 ```go
