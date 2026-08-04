@@ -5,7 +5,7 @@ Official Go SDK for the [Decodo](https://decodo.com) Web Scraping API. Scrape Go
 ## Installation
 
 ```bash
-go get github.com/decodo/sdk-go
+go get github.com/decodo/sdk-golang
 ```
 
 **Requires Go 1.21+**
@@ -36,7 +36,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/decodo/sdk-go"
+	"github.com/decodo/sdk-golang"
 )
 
 func main() {

@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/decodo/sdk-go"
+	"github.com/decodo/sdk-golang"
 )
 
 func main() {

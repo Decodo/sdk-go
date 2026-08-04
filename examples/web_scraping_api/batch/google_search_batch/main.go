@@ -7,7 +7,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/decodo/sdk-go"
+	"github.com/decodo/sdk-golang"
 )
 
 func main() {
