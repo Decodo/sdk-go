@@ -3,7 +3,6 @@ package decodo
 import (
 	"bytes"
 	"context"
-	"encoding/base64"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -70,8 +69,7 @@ func (c *httpClient) request(ctx context.Context, method, path string, body inte
 	}
 
 	if c.config.authType == authTypeBasic {
-		encoded := base64.StdEncoding.EncodeToString([]byte(c.config.authToken + ":"))
-		req.Header.Set("Authorization", "Basic "+encoded)
+		req.Header.Set("Authorization", "Basic "+c.config.authToken)
 	}
 	req.Header.Set("Content-Type", "application/json")
 	req.Header.Set("Accept", "application/json")
