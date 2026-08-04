@@ -45,3 +45,12 @@ jobs:
           for dir in examples/web_scraping_api/*/*/; do
             [ -f "${dir}main.go" ] && go build "./${dir}"
           done
+
+      - name: Commit updated generated files
+        if: github.ref == 'refs/heads/main'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add generated_params.go generated_parameters.go targets.go
+          git diff --cached --quiet || git commit -m "chore: regenerate types from IR"
+          git push
