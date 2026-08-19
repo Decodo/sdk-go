@@ -86,10 +86,9 @@ func (api *WebScrapingAPI) ScrapeAsync(ctx context.Context, params ScrapeRequest
 }
 
 // ScrapeBatch creates a batch scrape task.
+// Validation is skipped because batch params use []string for url/query fields
+// which differ from the single-value schema used for sync/async requests.
 func (api *WebScrapingAPI) ScrapeBatch(ctx context.Context, params ScrapeRequest) (*BatchResponse, error) {
-	if err := api.validate(params); err != nil {
-		return nil, err
-	}
 	body, err := api.http.post(ctx, "/v3/task/batch", params)
 	if err != nil {
 		return nil, err

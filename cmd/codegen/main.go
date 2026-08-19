@@ -117,6 +117,14 @@ func toParamsTypeName(targetKey string) string {
 	return pascal + "Params"
 }
 
+func toBatchParamsTypeName(targetKey string) string {
+	pascal := toPascalCase(targetKey)
+	if len(pascal) > 0 && unicode.IsDigit(rune(pascal[0])) {
+		pascal = "_" + pascal
+	}
+	return pascal + "BatchParams"
+}
+
 func toFieldName(jsonKey string) string {
 	// Handle keys starting with digits - use "F" prefix to make them exported
 	if len(jsonKey) > 0 && unicode.IsDigit(rune(jsonKey[0])) {
@@ -349,6 +357,66 @@ func generateParamsFile(ir *IR, outDir string) error {
 		sb.WriteString(fmt.Sprintf("// New%s creates a new %s with the target pre-set.\n", typeName, typeName))
 		sb.WriteString(fmt.Sprintf("func New%s() *%s {\n", typeName, typeName))
 		sb.WriteString(fmt.Sprintf("\treturn &%s{Target: %s}\n", typeName, constName))
+		sb.WriteString("}\n\n")
+	}
+
+	// Generate batch param structs (url/query become []string)
+	for _, key := range targetKeys {
+		target := api.Targets[key]
+		batchTypeName := toBatchParamsTypeName(key)
+		constName := toTargetConstName(key)
+
+		var ps parameterSchema
+		if err := json.Unmarshal(target.ParameterSchema, &ps); err != nil {
+			continue
+		}
+
+		propKeys := make([]string, 0, len(ps.Properties))
+		for k := range ps.Properties {
+			if k != "target" {
+				propKeys = append(propKeys, k)
+			}
+		}
+		sort.Strings(propKeys)
+
+		sb.WriteString(fmt.Sprintf("// %s contains parameters for the %s target (batch mode).\n", batchTypeName, key))
+		sb.WriteString(fmt.Sprintf("type %s struct {\n", batchTypeName))
+		sb.WriteString("\tTarget Target `json:\"target\"`\n")
+
+		for _, propKey := range propKeys {
+			prop := ps.Properties[propKey]
+			var goType string
+			if propKey == "url" || propKey == "query" {
+				goType = "[]string"
+			} else {
+				goType = jsonSchemaTypeToGo(prop)
+			}
+			fn := toFieldName(propKey)
+			jsonTag := propKey
+			omitempty := ",omitempty"
+			if !isOptional(goType) {
+				omitempty = ""
+			}
+
+			if len(prop.Enum) > 0 {
+				enumVals := make([]string, 0, len(prop.Enum))
+				for _, e := range prop.Enum {
+					enumVals = append(enumVals, fmt.Sprintf("%v", e))
+				}
+				sb.WriteString(fmt.Sprintf("\t// %s valid values: %s\n", fn, strings.Join(enumVals, ", ")))
+			}
+
+			sb.WriteString(fmt.Sprintf("\t%s %s `json:\"%s%s\"`\n", fn, goType, jsonTag, omitempty))
+		}
+
+		sb.WriteString("}\n\n")
+
+		sb.WriteString("// GetTarget implements ScrapeRequest.\n")
+		sb.WriteString(fmt.Sprintf("func (p *%s) GetTarget() string { return string(p.Target) }\n\n", batchTypeName))
+
+		sb.WriteString(fmt.Sprintf("// New%s creates a new %s with the target pre-set.\n", batchTypeName, batchTypeName))
+		sb.WriteString(fmt.Sprintf("func New%s() *%s {\n", batchTypeName, batchTypeName))
+		sb.WriteString(fmt.Sprintf("\treturn &%s{Target: %s}\n", batchTypeName, constName))
 		sb.WriteString("}\n\n")
 	}
 

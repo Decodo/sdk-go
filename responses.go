@@ -50,7 +50,7 @@ type AsyncTaskResponse struct {
 
 // BatchResponse is returned from batch scrape requests.
 type BatchResponse struct {
-	ID      string              `json:"id,omitempty"`
+	ID      int64               `json:"id,omitempty"`
 	Queries []AsyncTaskResponse `json:"queries,omitempty"`
 	Errors  []map[string]string `json:"errors,omitempty"`
 }
