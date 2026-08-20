@@ -1,4 +1,4 @@
-module github.com/decodo/sdk-golang
+module github.com/decodo/sdk-go
 
 go 1.21
 
