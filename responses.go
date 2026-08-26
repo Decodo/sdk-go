@@ -2,18 +2,18 @@ package decodo
 
 // ResultEntry represents a single result from a scrape operation.
 type ResultEntry struct {
-	Content                interface{}         `json:"content"`
-	StatusCode             int                 `json:"status_code"`
-	URL                    string              `json:"url,omitempty"`
-	TaskID                 string              `json:"task_id"`
-	Headers                map[string]string   `json:"headers,omitempty"`
-	Cookies                []map[string]string `json:"cookies,omitempty"`
-	CreatedAt              string              `json:"created_at"`
-	UpdatedAt              string              `json:"updated_at"`
-	Help                   string              `json:"help,omitempty"`
-	BrowserActionsWarnings []map[string]string `json:"browser_actions_warnings,omitempty"`
-	BrowserActionsError    []map[string]string `json:"browser_actions_error,omitempty"`
-	DeliveryZip            string              `json:"delivery_zip,omitempty"`
+	Content                interface{}              `json:"content"`
+	StatusCode             int                      `json:"status_code"`
+	URL                    string                   `json:"url,omitempty"`
+	TaskID                 string                   `json:"task_id"`
+	Headers                map[string]string        `json:"headers,omitempty"`
+	Cookies                []map[string]interface{} `json:"cookies,omitempty"`
+	CreatedAt              string                   `json:"created_at"`
+	UpdatedAt              string                   `json:"updated_at"`
+	Help                   string                   `json:"help,omitempty"`
+	BrowserActionsWarnings []map[string]string      `json:"browser_actions_warnings,omitempty"`
+	BrowserActionsError    []map[string]string      `json:"browser_actions_error,omitempty"`
+	DeliveryZip            string                   `json:"delivery_zip,omitempty"`
 }
 
 // SyncResponse is returned from synchronous scrape requests.
