@@ -4,15 +4,15 @@ package decodo
 
 // AirbnbParams contains parameters for the airbnb target.
 type AirbnbParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	DeviceType  *string `json:"device_type,omitempty"`
-	Geo         *string `json:"geo,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
+	Geo *string `json:"geo,omitempty"`
 	// Headless valid values: html, png
 	Headless *string `json:"headless,omitempty"`
-	Markdown *bool   `json:"markdown,omitempty"`
-	URL      *string `json:"url,omitempty"`
-	XHR      *bool   `json:"xhr,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	URL *string `json:"url,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -25,17 +25,17 @@ func NewAirbnbParams() *AirbnbParams {
 
 // AmazonParams contains parameters for the amazon target.
 type AmazonParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	DeviceType  *string `json:"device_type,omitempty"`
-	Geo         *string `json:"geo,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
+	Geo *string `json:"geo,omitempty"`
 	// Headless valid values: html, png
-	Headless  *string `json:"headless,omitempty"`
-	Markdown  *bool   `json:"markdown,omitempty"`
-	Parse     *bool   `json:"parse,omitempty"`
+	Headless *string `json:"headless,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	Parse *bool `json:"parse,omitempty"`
 	SessionID *string `json:"session_id,omitempty"`
-	URL       *string `json:"url,omitempty"`
-	XHR       *bool   `json:"xhr,omitempty"`
+	URL *string `json:"url,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -48,19 +48,19 @@ func NewAmazonParams() *AmazonParams {
 
 // AmazonBestsellersParams contains parameters for the amazon_bestsellers target.
 type AmazonBestsellersParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	Category    *string `json:"category,omitempty"`
-	Currency    *string `json:"currency,omitempty"`
-	DeviceType  *string `json:"device_type,omitempty"`
-	Domain      *string `json:"domain,omitempty"`
-	Geo         *string `json:"geo,omitempty"`
-	Markdown    *bool   `json:"markdown,omitempty"`
-	PageFrom    *int    `json:"page_from,omitempty"`
-	Parse       *bool   `json:"parse,omitempty"`
-	Query       *string `json:"query,omitempty"`
-	SessionID   *string `json:"session_id,omitempty"`
-	XHR         *bool   `json:"xhr,omitempty"`
+	Category *string `json:"category,omitempty"`
+	Currency *string `json:"currency,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
+	Domain *string `json:"domain,omitempty"`
+	Geo *string `json:"geo,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	PageFrom *int `json:"page_from,omitempty"`
+	Parse *bool `json:"parse,omitempty"`
+	Query *string `json:"query,omitempty"`
+	SessionID *string `json:"session_id,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -73,20 +73,20 @@ func NewAmazonBestsellersParams() *AmazonBestsellersParams {
 
 // AmazonPricingParams contains parameters for the amazon_pricing target.
 type AmazonPricingParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	Currency    *string `json:"currency,omitempty"`
-	DeviceType  *string `json:"device_type,omitempty"`
-	Domain      *string `json:"domain,omitempty"`
-	Geo         *string `json:"geo,omitempty"`
+	Currency *string `json:"currency,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
+	Domain *string `json:"domain,omitempty"`
+	Geo *string `json:"geo,omitempty"`
 	// Headless valid values: html, png
-	Headless  *string `json:"headless,omitempty"`
-	Markdown  *bool   `json:"markdown,omitempty"`
-	PageFrom  *int    `json:"page_from,omitempty"`
-	Parse     *bool   `json:"parse,omitempty"`
-	Query     *string `json:"query,omitempty"`
+	Headless *string `json:"headless,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	PageFrom *int `json:"page_from,omitempty"`
+	Parse *bool `json:"parse,omitempty"`
+	Query *string `json:"query,omitempty"`
 	SessionID *string `json:"session_id,omitempty"`
-	XHR       *bool   `json:"xhr,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -99,20 +99,20 @@ func NewAmazonPricingParams() *AmazonPricingParams {
 
 // AmazonProductParams contains parameters for the amazon_product target.
 type AmazonProductParams struct {
-	Target            Target  `json:"target"`
-	AutoselectVariant *bool   `json:"autoselect_variant,omitempty"`
-	CallbackURL       *string `json:"callback_url,omitempty"`
-	Currency          *string `json:"currency,omitempty"`
-	DeviceType        *string `json:"device_type,omitempty"`
-	Domain            *string `json:"domain,omitempty"`
-	Geo               *string `json:"geo,omitempty"`
+	Target Target `json:"target"`
+	AutoselectVariant *bool `json:"autoselect_variant,omitempty"`
+	CallbackURL *string `json:"callback_url,omitempty"`
+	Currency *string `json:"currency,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
+	Domain *string `json:"domain,omitempty"`
+	Geo *string `json:"geo,omitempty"`
 	// Headless valid values: html, png
-	Headless  *string `json:"headless,omitempty"`
-	Markdown  *bool   `json:"markdown,omitempty"`
-	Parse     *bool   `json:"parse,omitempty"`
-	Query     *string `json:"query,omitempty"`
+	Headless *string `json:"headless,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	Parse *bool `json:"parse,omitempty"`
+	Query *string `json:"query,omitempty"`
 	SessionID *string `json:"session_id,omitempty"`
-	XHR       *bool   `json:"xhr,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -125,23 +125,23 @@ func NewAmazonProductParams() *AmazonProductParams {
 
 // AmazonSearchParams contains parameters for the amazon_search target.
 type AmazonSearchParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	Category    *string `json:"category,omitempty"`
-	Currency    *string `json:"currency,omitempty"`
-	DeviceType  *string `json:"device_type,omitempty"`
-	Domain      *string `json:"domain,omitempty"`
-	Geo         *string `json:"geo,omitempty"`
+	Category *string `json:"category,omitempty"`
+	Currency *string `json:"currency,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
+	Domain *string `json:"domain,omitempty"`
+	Geo *string `json:"geo,omitempty"`
 	// Headless valid values: html, png
-	Headless  *string `json:"headless,omitempty"`
-	Markdown  *bool   `json:"markdown,omitempty"`
-	Merchant  *string `json:"merchant,omitempty"`
-	PageFrom  *int    `json:"page_from,omitempty"`
-	Parse     *bool   `json:"parse,omitempty"`
-	Query     *string `json:"query,omitempty"`
+	Headless *string `json:"headless,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	Merchant *string `json:"merchant,omitempty"`
+	PageFrom *int `json:"page_from,omitempty"`
+	Parse *bool `json:"parse,omitempty"`
+	Query *string `json:"query,omitempty"`
 	SessionID *string `json:"session_id,omitempty"`
-	SortBy    *string `json:"sort_by,omitempty"`
-	XHR       *bool   `json:"xhr,omitempty"`
+	SortBy *string `json:"sort_by,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -154,18 +154,18 @@ func NewAmazonSearchParams() *AmazonSearchParams {
 
 // AmazonSellersParams contains parameters for the amazon_sellers target.
 type AmazonSellersParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	DeviceType  *string `json:"device_type,omitempty"`
-	Domain      *string `json:"domain,omitempty"`
-	Geo         *string `json:"geo,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
+	Domain *string `json:"domain,omitempty"`
+	Geo *string `json:"geo,omitempty"`
 	// Headless valid values: html, png
 	Headless *string `json:"headless,omitempty"`
-	Locale   *string `json:"locale,omitempty"`
-	Markdown *bool   `json:"markdown,omitempty"`
-	Parse    *bool   `json:"parse,omitempty"`
-	Query    *string `json:"query,omitempty"`
-	XHR      *bool   `json:"xhr,omitempty"`
+	Locale *string `json:"locale,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	Parse *bool `json:"parse,omitempty"`
+	Query *string `json:"query,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -178,15 +178,15 @@ func NewAmazonSellersParams() *AmazonSellersParams {
 
 // AppleAppStoreParams contains parameters for the apple_app_store target.
 type AppleAppStoreParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	DeviceType  *string `json:"device_type,omitempty"`
-	Geo         *string `json:"geo,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
+	Geo *string `json:"geo,omitempty"`
 	// Headless valid values: html, png
 	Headless *string `json:"headless,omitempty"`
-	Markdown *bool   `json:"markdown,omitempty"`
-	URL      *string `json:"url,omitempty"`
-	XHR      *bool   `json:"xhr,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	URL *string `json:"url,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -199,15 +199,15 @@ func NewAppleAppStoreParams() *AppleAppStoreParams {
 
 // AutotraderParams contains parameters for the autotrader target.
 type AutotraderParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	DeviceType  *string `json:"device_type,omitempty"`
-	Geo         *string `json:"geo,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
+	Geo *string `json:"geo,omitempty"`
 	// Headless valid values: html, png
 	Headless *string `json:"headless,omitempty"`
-	Markdown *bool   `json:"markdown,omitempty"`
-	URL      *string `json:"url,omitempty"`
-	XHR      *bool   `json:"xhr,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	URL *string `json:"url,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -220,15 +220,15 @@ func NewAutotraderParams() *AutotraderParams {
 
 // BbbParams contains parameters for the bbb target.
 type BbbParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	DeviceType  *string `json:"device_type,omitempty"`
-	Geo         *string `json:"geo,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
+	Geo *string `json:"geo,omitempty"`
 	// Headless valid values: html, png
 	Headless *string `json:"headless,omitempty"`
-	Markdown *bool   `json:"markdown,omitempty"`
-	URL      *string `json:"url,omitempty"`
-	XHR      *bool   `json:"xhr,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	URL *string `json:"url,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -241,19 +241,19 @@ func NewBbbParams() *BbbParams {
 
 // BingParams contains parameters for the bing target.
 type BingParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	DeviceType  *string `json:"device_type,omitempty"`
-	Geo         *string `json:"geo,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
+	Geo *string `json:"geo,omitempty"`
 	// Headless valid values: html, png
-	Headless  *string `json:"headless,omitempty"`
-	Locale    *string `json:"locale,omitempty"`
-	Markdown  *bool   `json:"markdown,omitempty"`
-	PageFrom  *int    `json:"page_from,omitempty"`
-	Parse     *bool   `json:"parse,omitempty"`
+	Headless *string `json:"headless,omitempty"`
+	Locale *string `json:"locale,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	PageFrom *int `json:"page_from,omitempty"`
+	Parse *bool `json:"parse,omitempty"`
 	SessionID *string `json:"session_id,omitempty"`
-	URL       *string `json:"url,omitempty"`
-	XHR       *bool   `json:"xhr,omitempty"`
+	URL *string `json:"url,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -266,21 +266,21 @@ func NewBingParams() *BingParams {
 
 // BingSearchParams contains parameters for the bing_search target.
 type BingSearchParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	DeviceType  *string `json:"device_type,omitempty"`
-	Domain      *string `json:"domain,omitempty"`
-	Geo         *string `json:"geo,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
+	Domain *string `json:"domain,omitempty"`
+	Geo *string `json:"geo,omitempty"`
 	// Headless valid values: html, png
-	Headless  *string `json:"headless,omitempty"`
-	Locale    *string `json:"locale,omitempty"`
-	Markdown  *bool   `json:"markdown,omitempty"`
-	PageCount *int    `json:"page_count,omitempty"`
-	PageFrom  *int    `json:"page_from,omitempty"`
-	Parse     *bool   `json:"parse,omitempty"`
-	Query     *string `json:"query,omitempty"`
+	Headless *string `json:"headless,omitempty"`
+	Locale *string `json:"locale,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	PageCount *int `json:"page_count,omitempty"`
+	PageFrom *int `json:"page_from,omitempty"`
+	Parse *bool `json:"parse,omitempty"`
+	Query *string `json:"query,omitempty"`
 	SessionID *string `json:"session_id,omitempty"`
-	XHR       *bool   `json:"xhr,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -293,15 +293,15 @@ func NewBingSearchParams() *BingSearchParams {
 
 // ChatgptParams contains parameters for the chatgpt target.
 type ChatgptParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	DeviceType  *string `json:"device_type,omitempty"`
-	Geo         *string `json:"geo,omitempty"`
-	Markdown    *bool   `json:"markdown,omitempty"`
-	Parse       *bool   `json:"parse,omitempty"`
-	Prompt      *string `json:"prompt,omitempty"`
-	Search      *bool   `json:"search,omitempty"`
-	XHR         *bool   `json:"xhr,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
+	Geo *string `json:"geo,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	Parse *bool `json:"parse,omitempty"`
+	Prompt *string `json:"prompt,omitempty"`
+	Search *bool `json:"search,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -314,12 +314,12 @@ func NewChatgptParams() *ChatgptParams {
 
 // GeminiParams contains parameters for the gemini target.
 type GeminiParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	Geo         *string `json:"geo,omitempty"`
-	Parse       *bool   `json:"parse,omitempty"`
-	Prompt      *string `json:"prompt,omitempty"`
-	XHR         *bool   `json:"xhr,omitempty"`
+	Geo *string `json:"geo,omitempty"`
+	Parse *bool `json:"parse,omitempty"`
+	Prompt *string `json:"prompt,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -332,18 +332,18 @@ func NewGeminiParams() *GeminiParams {
 
 // GoogleParams contains parameters for the google target.
 type GoogleParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	DeviceType  *string `json:"device_type,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
 	// Headless valid values: html, png
-	Headless  *string `json:"headless,omitempty"`
-	Locale    *string `json:"locale,omitempty"`
-	Markdown  *bool   `json:"markdown,omitempty"`
-	PageCount *int    `json:"page_count,omitempty"`
-	Parse     *bool   `json:"parse,omitempty"`
+	Headless *string `json:"headless,omitempty"`
+	Locale *string `json:"locale,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	PageCount *int `json:"page_count,omitempty"`
+	Parse *bool `json:"parse,omitempty"`
 	SessionID *string `json:"session_id,omitempty"`
-	URL       *string `json:"url,omitempty"`
-	XHR       *bool   `json:"xhr,omitempty"`
+	URL *string `json:"url,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -356,24 +356,24 @@ func NewGoogleParams() *GoogleParams {
 
 // GoogleAdsParams contains parameters for the google_ads target.
 type GoogleAdsParams struct {
-	Target                Target  `json:"target"`
-	CallbackURL           *string `json:"callback_url,omitempty"`
-	DeviceType            *string `json:"device_type,omitempty"`
-	Geo                   *string `json:"geo,omitempty"`
-	GoogleNfpr            *bool   `json:"google_nfpr,omitempty"`
+	Target Target `json:"target"`
+	CallbackURL *string `json:"callback_url,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
+	Geo *string `json:"geo,omitempty"`
+	GoogleNfpr *bool `json:"google_nfpr,omitempty"`
 	GoogleResultsLanguage *string `json:"google_results_language,omitempty"`
-	GoogleTbm             *string `json:"google_tbm,omitempty"`
-	GoogleTbs             *string `json:"google_tbs,omitempty"`
+	GoogleTbm *string `json:"google_tbm,omitempty"`
+	GoogleTbs *string `json:"google_tbs,omitempty"`
 	// Headless valid values: html, png
-	Headless  *string `json:"headless,omitempty"`
-	Locale    *string `json:"locale,omitempty"`
-	Markdown  *bool   `json:"markdown,omitempty"`
-	PageCount *int    `json:"page_count,omitempty"`
-	PageFrom  *int    `json:"page_from,omitempty"`
-	Parse     *bool   `json:"parse,omitempty"`
-	Query     *string `json:"query,omitempty"`
+	Headless *string `json:"headless,omitempty"`
+	Locale *string `json:"locale,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	PageCount *int `json:"page_count,omitempty"`
+	PageFrom *int `json:"page_from,omitempty"`
+	Parse *bool `json:"parse,omitempty"`
+	Query *string `json:"query,omitempty"`
 	SessionID *string `json:"session_id,omitempty"`
-	XHR       *bool   `json:"xhr,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -386,15 +386,15 @@ func NewGoogleAdsParams() *GoogleAdsParams {
 
 // GoogleAiModeParams contains parameters for the google_ai_mode target.
 type GoogleAiModeParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	DeviceType  *string `json:"device_type,omitempty"`
-	Geo         *string `json:"geo,omitempty"`
-	Markdown    *bool   `json:"markdown,omitempty"`
-	Parse       *bool   `json:"parse,omitempty"`
-	Query       *string `json:"query,omitempty"`
-	SessionID   *string `json:"session_id,omitempty"`
-	XHR         *bool   `json:"xhr,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
+	Geo *string `json:"geo,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	Parse *bool `json:"parse,omitempty"`
+	Query *string `json:"query,omitempty"`
+	SessionID *string `json:"session_id,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -407,14 +407,14 @@ func NewGoogleAiModeParams() *GoogleAiModeParams {
 
 // GoogleLensParams contains parameters for the google_lens target.
 type GoogleLensParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	DeviceType  *string `json:"device_type,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
 	// Headless valid values: html, png
 	Headless *string `json:"headless,omitempty"`
-	Markdown *bool   `json:"markdown,omitempty"`
-	Parse    *bool   `json:"parse,omitempty"`
-	Query    *string `json:"query,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	Parse *bool `json:"parse,omitempty"`
+	Query *string `json:"query,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -427,25 +427,25 @@ func NewGoogleLensParams() *GoogleLensParams {
 
 // GoogleSearchParams contains parameters for the google_search target.
 type GoogleSearchParams struct {
-	Target                Target  `json:"target"`
-	CallbackURL           *string `json:"callback_url,omitempty"`
-	DeviceType            *string `json:"device_type,omitempty"`
-	Geo                   *string `json:"geo,omitempty"`
-	GoogleNfpr            *bool   `json:"google_nfpr,omitempty"`
+	Target Target `json:"target"`
+	CallbackURL *string `json:"callback_url,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
+	Geo *string `json:"geo,omitempty"`
+	GoogleNfpr *bool `json:"google_nfpr,omitempty"`
 	GoogleResultsLanguage *string `json:"google_results_language,omitempty"`
-	GoogleSafeSearch      *bool   `json:"google_safe_search,omitempty"`
-	GoogleTbm             *string `json:"google_tbm,omitempty"`
-	GoogleTbs             *string `json:"google_tbs,omitempty"`
+	GoogleSafeSearch *bool `json:"google_safe_search,omitempty"`
+	GoogleTbm *string `json:"google_tbm,omitempty"`
+	GoogleTbs *string `json:"google_tbs,omitempty"`
 	// Headless valid values: html, png
-	Headless  *string `json:"headless,omitempty"`
-	Locale    *string `json:"locale,omitempty"`
-	Markdown  *bool   `json:"markdown,omitempty"`
-	PageCount *int    `json:"page_count,omitempty"`
-	PageFrom  *int    `json:"page_from,omitempty"`
-	Parse     *bool   `json:"parse,omitempty"`
-	Query     *string `json:"query,omitempty"`
+	Headless *string `json:"headless,omitempty"`
+	Locale *string `json:"locale,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	PageCount *int `json:"page_count,omitempty"`
+	PageFrom *int `json:"page_from,omitempty"`
+	Parse *bool `json:"parse,omitempty"`
+	Query *string `json:"query,omitempty"`
 	SessionID *string `json:"session_id,omitempty"`
-	XHR       *bool   `json:"xhr,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -458,20 +458,20 @@ func NewGoogleSearchParams() *GoogleSearchParams {
 
 // GoogleTravelHotelsParams contains parameters for the google_travel_hotels target.
 type GoogleTravelHotelsParams struct {
-	Target      Target  `json:"target"`
-	Adults      *int    `json:"adults,omitempty"`
+	Target Target `json:"target"`
+	Adults *int `json:"adults,omitempty"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	Children    *int    `json:"children,omitempty"`
-	DateRange   *string `json:"date_range,omitempty"`
-	DeviceType  *string `json:"device_type,omitempty"`
+	Children *int `json:"children,omitempty"`
+	DateRange *string `json:"date_range,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
 	// Headless valid values: html, png
-	Headless  *string `json:"headless,omitempty"`
-	Locale    *string `json:"locale,omitempty"`
-	Markdown  *bool   `json:"markdown,omitempty"`
-	PageFrom  *int    `json:"page_from,omitempty"`
-	Query     *string `json:"query,omitempty"`
+	Headless *string `json:"headless,omitempty"`
+	Locale *string `json:"locale,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	PageFrom *int `json:"page_from,omitempty"`
+	Query *string `json:"query,omitempty"`
 	SessionID *string `json:"session_id,omitempty"`
-	Stars     *int    `json:"stars,omitempty"`
+	Stars *int `json:"stars,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -484,15 +484,15 @@ func NewGoogleTravelHotelsParams() *GoogleTravelHotelsParams {
 
 // MobileParams contains parameters for the mobile target.
 type MobileParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	DeviceType  *string `json:"device_type,omitempty"`
-	Geo         *string `json:"geo,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
+	Geo *string `json:"geo,omitempty"`
 	// Headless valid values: html, png
 	Headless *string `json:"headless,omitempty"`
-	Markdown *bool   `json:"markdown,omitempty"`
-	URL      *string `json:"url,omitempty"`
-	XHR      *bool   `json:"xhr,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	URL *string `json:"url,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -505,14 +505,14 @@ func NewMobileParams() *MobileParams {
 
 // PerplexityParams contains parameters for the perplexity target.
 type PerplexityParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	DeviceType  *string `json:"device_type,omitempty"`
-	Geo         *string `json:"geo,omitempty"`
-	Markdown    *bool   `json:"markdown,omitempty"`
-	Parse       *bool   `json:"parse,omitempty"`
-	Prompt      *string `json:"prompt,omitempty"`
-	XHR         *bool   `json:"xhr,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
+	Geo *string `json:"geo,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	Parse *bool `json:"parse,omitempty"`
+	Prompt *string `json:"prompt,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -525,11 +525,11 @@ func NewPerplexityParams() *PerplexityParams {
 
 // RedditPostParams contains parameters for the reddit_post target.
 type RedditPostParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	Geo         *string `json:"geo,omitempty"`
-	Locale      *string `json:"locale,omitempty"`
-	URL         *string `json:"url,omitempty"`
+	Geo *string `json:"geo,omitempty"`
+	Locale *string `json:"locale,omitempty"`
+	URL *string `json:"url,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -542,11 +542,11 @@ func NewRedditPostParams() *RedditPostParams {
 
 // RedditSubredditParams contains parameters for the reddit_subreddit target.
 type RedditSubredditParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	Geo         *string `json:"geo,omitempty"`
-	Locale      *string `json:"locale,omitempty"`
-	URL         *string `json:"url,omitempty"`
+	Geo *string `json:"geo,omitempty"`
+	Locale *string `json:"locale,omitempty"`
+	URL *string `json:"url,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -559,12 +559,12 @@ func NewRedditSubredditParams() *RedditSubredditParams {
 
 // RedditUserParams contains parameters for the reddit_user target.
 type RedditUserParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	Geo         *string `json:"geo,omitempty"`
-	Locale      *string `json:"locale,omitempty"`
-	Sort        *string `json:"sort,omitempty"`
-	URL         *string `json:"url,omitempty"`
+	Geo *string `json:"geo,omitempty"`
+	Locale *string `json:"locale,omitempty"`
+	Sort *string `json:"sort,omitempty"`
+	URL *string `json:"url,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -577,15 +577,15 @@ func NewRedditUserParams() *RedditUserParams {
 
 // TargetParams contains parameters for the target target.
 type TargetParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
 	DeliveryZip *string `json:"delivery_zip,omitempty"`
-	DeviceType  *string `json:"device_type,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
 	// Headless valid values: html, png
-	Headless      *string `json:"headless,omitempty"`
+	Headless *string `json:"headless,omitempty"`
 	TargetStoreID *string `json:"target_store_id,omitempty"`
-	URL           *string `json:"url,omitempty"`
-	XHR           *bool   `json:"xhr,omitempty"`
+	URL *string `json:"url,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -598,18 +598,18 @@ func NewTargetParams() *TargetParams {
 
 // TargetProductParams contains parameters for the target_product target.
 type TargetProductParams struct {
-	Target       Target  `json:"target"`
-	CallbackURL  *string `json:"callback_url,omitempty"`
+	Target Target `json:"target"`
+	CallbackURL *string `json:"callback_url,omitempty"`
 	DeliveryType *string `json:"delivery_type,omitempty"`
-	DeliveryZip  *string `json:"delivery_zip,omitempty"`
-	DeviceType   *string `json:"device_type,omitempty"`
+	DeliveryZip *string `json:"delivery_zip,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
 	// Headless valid values: html, png
-	Headless      *string `json:"headless,omitempty"`
-	Markdown      *bool   `json:"markdown,omitempty"`
-	Parse         *bool   `json:"parse,omitempty"`
-	ProductID     *string `json:"product_id,omitempty"`
+	Headless *string `json:"headless,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	Parse *bool `json:"parse,omitempty"`
+	ProductID *string `json:"product_id,omitempty"`
 	TargetStoreID *string `json:"target_store_id,omitempty"`
-	XHR           *bool   `json:"xhr,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -622,18 +622,18 @@ func NewTargetProductParams() *TargetProductParams {
 
 // TargetSearchParams contains parameters for the target_search target.
 type TargetSearchParams struct {
-	Target       Target  `json:"target"`
-	CallbackURL  *string `json:"callback_url,omitempty"`
+	Target Target `json:"target"`
+	CallbackURL *string `json:"callback_url,omitempty"`
 	DeliveryType *string `json:"delivery_type,omitempty"`
-	DeliveryZip  *string `json:"delivery_zip,omitempty"`
-	DeviceType   *string `json:"device_type,omitempty"`
+	DeliveryZip *string `json:"delivery_zip,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
 	// Headless valid values: html, png
-	Headless      *string `json:"headless,omitempty"`
-	Markdown      *bool   `json:"markdown,omitempty"`
-	Parse         *bool   `json:"parse,omitempty"`
-	Query         *string `json:"query,omitempty"`
+	Headless *string `json:"headless,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	Parse *bool `json:"parse,omitempty"`
+	Query *string `json:"query,omitempty"`
 	TargetStoreID *string `json:"target_store_id,omitempty"`
-	XHR           *bool   `json:"xhr,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -646,11 +646,11 @@ func NewTargetSearchParams() *TargetSearchParams {
 
 // TiktokParams contains parameters for the tiktok target.
 type TiktokParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
 	// Headless valid values: html, png
-	Headless      *string `json:"headless,omitempty"`
-	URL           *string `json:"url,omitempty"`
+	Headless *string `json:"headless,omitempty"`
+	URL *string `json:"url,omitempty"`
 	UserAgentType *string `json:"user_agent_type,omitempty"`
 }
 
@@ -664,10 +664,10 @@ func NewTiktokParams() *TiktokParams {
 
 // TiktokPostParams contains parameters for the tiktok_post target.
 type TiktokPostParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	URL         *string `json:"url,omitempty"`
-	XHR         *bool   `json:"xhr,omitempty"`
+	URL *string `json:"url,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -680,15 +680,15 @@ func NewTiktokPostParams() *TiktokPostParams {
 
 // TiktokShopProductParams contains parameters for the tiktok_shop_product target.
 type TiktokShopProductParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	Country     *string `json:"country,omitempty"`
-	DeviceType  *string `json:"device_type,omitempty"`
+	Country *string `json:"country,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
 	// Headless valid values: html, png
-	Headless  *string `json:"headless,omitempty"`
-	Markdown  *bool   `json:"markdown,omitempty"`
+	Headless *string `json:"headless,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
 	ProductID *string `json:"product_id,omitempty"`
-	XHR       *bool   `json:"xhr,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -701,14 +701,14 @@ func NewTiktokShopProductParams() *TiktokShopProductParams {
 
 // TiktokShopSearchParams contains parameters for the tiktok_shop_search target.
 type TiktokShopSearchParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	Country     *string `json:"country,omitempty"`
-	DeviceType  *string `json:"device_type,omitempty"`
+	Country *string `json:"country,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
 	// Headless valid values: html, png
 	Headless *string `json:"headless,omitempty"`
-	Markdown *bool   `json:"markdown,omitempty"`
-	Query    *string `json:"query,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	Query *string `json:"query,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -721,26 +721,26 @@ func NewTiktokShopSearchParams() *TiktokShopSearchParams {
 
 // UniversalParams contains parameters for the universal target.
 type UniversalParams struct {
-	Target       Target                 `json:"target"`
-	CallbackURL  *string                `json:"callback_url,omitempty"`
-	Cookies      map[string]interface{} `json:"cookies,omitempty"`
-	DeviceType   *string                `json:"device_type,omitempty"`
-	ForceCookies *bool                  `json:"force_cookies,omitempty"`
-	ForceHeaders *bool                  `json:"force_headers,omitempty"`
-	Geo          *string                `json:"geo,omitempty"`
-	Headers      map[string]interface{} `json:"headers,omitempty"`
+	Target Target `json:"target"`
+	CallbackURL *string `json:"callback_url,omitempty"`
+	Cookies map[string]interface{} `json:"cookies,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
+	ForceCookies *bool `json:"force_cookies,omitempty"`
+	ForceHeaders *bool `json:"force_headers,omitempty"`
+	Geo *string `json:"geo,omitempty"`
+	Headers map[string]interface{} `json:"headers,omitempty"`
 	// Headless valid values: html, png
-	Headless   *string `json:"headless,omitempty"`
+	Headless *string `json:"headless,omitempty"`
 	HTTPMethod *string `json:"http_method,omitempty"`
-	Locale     *string `json:"locale,omitempty"`
-	Markdown   *bool   `json:"markdown,omitempty"`
-	Payload    *string `json:"payload,omitempty"`
+	Locale *string `json:"locale,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	Payload *string `json:"payload,omitempty"`
 	// ProxyPool valid values: standard, premium
-	ProxyPool             *string   `json:"proxy_pool,omitempty"`
-	SessionID             *string   `json:"session_id,omitempty"`
+	ProxyPool *string `json:"proxy_pool,omitempty"`
+	SessionID *string `json:"session_id,omitempty"`
 	SuccessfulStatusCodes []float64 `json:"successful_status_codes,omitempty"`
-	URL                   *string   `json:"url,omitempty"`
-	XHR                   *bool     `json:"xhr,omitempty"`
+	URL *string `json:"url,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -753,17 +753,17 @@ func NewUniversalParams() *UniversalParams {
 
 // WalmartParams contains parameters for the walmart target.
 type WalmartParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	DeviceType  *string `json:"device_type,omitempty"`
-	Geo         *string `json:"geo,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
+	Geo *string `json:"geo,omitempty"`
 	// Headless valid values: html, png
 	Headless *string `json:"headless,omitempty"`
-	Locale   *string `json:"locale,omitempty"`
-	Markdown *bool   `json:"markdown,omitempty"`
-	StoreID  *string `json:"store_id,omitempty"`
-	URL      *string `json:"url,omitempty"`
-	XHR      *bool   `json:"xhr,omitempty"`
+	Locale *string `json:"locale,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	StoreID *string `json:"store_id,omitempty"`
+	URL *string `json:"url,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -776,17 +776,17 @@ func NewWalmartParams() *WalmartParams {
 
 // WalmartProductParams contains parameters for the walmart_product target.
 type WalmartProductParams struct {
-	Target          Target  `json:"target"`
-	CallbackURL     *string `json:"callback_url,omitempty"`
-	DeliveryZip     *string `json:"delivery_zip,omitempty"`
+	Target Target `json:"target"`
+	CallbackURL *string `json:"callback_url,omitempty"`
+	DeliveryZip *string `json:"delivery_zip,omitempty"`
 	FulfillmentType *string `json:"fulfillment_type,omitempty"`
 	// Headless valid values: html, png
-	Headless       *string `json:"headless,omitempty"`
-	Markdown       *bool   `json:"markdown,omitempty"`
-	Parse          *bool   `json:"parse,omitempty"`
-	ProductID      *string `json:"product_id,omitempty"`
+	Headless *string `json:"headless,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	Parse *bool `json:"parse,omitempty"`
+	ProductID *string `json:"product_id,omitempty"`
 	WalmartStoreID *string `json:"walmart_store_id,omitempty"`
-	XHR            *bool   `json:"xhr,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -799,15 +799,15 @@ func NewWalmartProductParams() *WalmartProductParams {
 
 // WalmartSearchParams contains parameters for the walmart_search target.
 type WalmartSearchParams struct {
-	Target          Target  `json:"target"`
-	CallbackURL     *string `json:"callback_url,omitempty"`
-	DeliveryZip     *string `json:"delivery_zip,omitempty"`
+	Target Target `json:"target"`
+	CallbackURL *string `json:"callback_url,omitempty"`
+	DeliveryZip *string `json:"delivery_zip,omitempty"`
 	FulfillmentType *string `json:"fulfillment_type,omitempty"`
 	// Headless valid values: html, png
-	Headless       *string `json:"headless,omitempty"`
-	Markdown       *bool   `json:"markdown,omitempty"`
-	Parse          *bool   `json:"parse,omitempty"`
-	Query          *string `json:"query,omitempty"`
+	Headless *string `json:"headless,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	Parse *bool `json:"parse,omitempty"`
+	Query *string `json:"query,omitempty"`
 	WalmartStoreID *string `json:"walmart_store_id,omitempty"`
 }
 
@@ -821,12 +821,12 @@ func NewWalmartSearchParams() *WalmartSearchParams {
 
 // YoutubeChannelParams contains parameters for the youtube_channel target.
 type YoutubeChannelParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	Limit       *int    `json:"limit,omitempty"`
-	Markdown    *bool   `json:"markdown,omitempty"`
-	Parse       *bool   `json:"parse,omitempty"`
-	Query       *string `json:"query,omitempty"`
+	Limit *int `json:"limit,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	Parse *bool `json:"parse,omitempty"`
+	Query *string `json:"query,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -839,9 +839,9 @@ func NewYoutubeChannelParams() *YoutubeChannelParams {
 
 // YoutubeMetadataParams contains parameters for the youtube_metadata target.
 type YoutubeMetadataParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	Query       *string `json:"query,omitempty"`
+	Query *string `json:"query,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -854,24 +854,24 @@ func NewYoutubeMetadataParams() *YoutubeMetadataParams {
 
 // YoutubeSearchParams contains parameters for the youtube_search target.
 type YoutubeSearchParams struct {
-	Target          Target  `json:"target"`
-	F360            *bool   `json:"360,omitempty"`
-	F3d             *bool   `json:"3d,omitempty"`
-	F4k             *bool   `json:"4k,omitempty"`
-	CallbackURL     *string `json:"callback_url,omitempty"`
-	CreativeCommons *bool   `json:"creative_commons,omitempty"`
-	Duration        *string `json:"duration,omitempty"`
-	Hd              *bool   `json:"hd,omitempty"`
-	Hdr             *bool   `json:"hdr,omitempty"`
-	Live            *bool   `json:"live,omitempty"`
-	Location        *bool   `json:"location,omitempty"`
-	Purchased       *bool   `json:"purchased,omitempty"`
-	Query           *string `json:"query,omitempty"`
-	Subtitles       *bool   `json:"subtitles,omitempty"`
-	Type            *string `json:"type,omitempty"`
-	UploadDate      *string `json:"upload_date,omitempty"`
-	VideoSortBy     *string `json:"video_sort_by,omitempty"`
-	Vr180           *bool   `json:"vr180,omitempty"`
+	Target Target `json:"target"`
+	F360 *bool `json:"360,omitempty"`
+	F3d *bool `json:"3d,omitempty"`
+	F4k *bool `json:"4k,omitempty"`
+	CallbackURL *string `json:"callback_url,omitempty"`
+	CreativeCommons *bool `json:"creative_commons,omitempty"`
+	Duration *string `json:"duration,omitempty"`
+	Hd *bool `json:"hd,omitempty"`
+	Hdr *bool `json:"hdr,omitempty"`
+	Live *bool `json:"live,omitempty"`
+	Location *bool `json:"location,omitempty"`
+	Purchased *bool `json:"purchased,omitempty"`
+	Query *string `json:"query,omitempty"`
+	Subtitles *bool `json:"subtitles,omitempty"`
+	Type *string `json:"type,omitempty"`
+	UploadDate *string `json:"upload_date,omitempty"`
+	VideoSortBy *string `json:"video_sort_by,omitempty"`
+	Vr180 *bool `json:"vr180,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -884,10 +884,10 @@ func NewYoutubeSearchParams() *YoutubeSearchParams {
 
 // YoutubeSubtitlesParams contains parameters for the youtube_subtitles target.
 type YoutubeSubtitlesParams struct {
-	Target         Target  `json:"target"`
-	CallbackURL    *string `json:"callback_url,omitempty"`
-	LanguageCode   *string `json:"language_code,omitempty"`
-	Query          *string `json:"query,omitempty"`
+	Target Target `json:"target"`
+	CallbackURL *string `json:"callback_url,omitempty"`
+	LanguageCode *string `json:"language_code,omitempty"`
+	Query *string `json:"query,omitempty"`
 	SubtitleOrigin *string `json:"subtitle_origin,omitempty"`
 }
 
@@ -901,15 +901,15 @@ func NewYoutubeSubtitlesParams() *YoutubeSubtitlesParams {
 
 // AirbnbBatchParams contains parameters for the airbnb target (batch mode).
 type AirbnbBatchParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	DeviceType  *string `json:"device_type,omitempty"`
-	Geo         *string `json:"geo,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
+	Geo *string `json:"geo,omitempty"`
 	// Headless valid values: html, png
-	Headless *string  `json:"headless,omitempty"`
-	Markdown *bool    `json:"markdown,omitempty"`
-	URL      []string `json:"url,omitempty"`
-	XHR      *bool    `json:"xhr,omitempty"`
+	Headless *string `json:"headless,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	URL []string `json:"url,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -922,17 +922,17 @@ func NewAirbnbBatchParams() *AirbnbBatchParams {
 
 // AmazonBatchParams contains parameters for the amazon target (batch mode).
 type AmazonBatchParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	DeviceType  *string `json:"device_type,omitempty"`
-	Geo         *string `json:"geo,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
+	Geo *string `json:"geo,omitempty"`
 	// Headless valid values: html, png
-	Headless  *string  `json:"headless,omitempty"`
-	Markdown  *bool    `json:"markdown,omitempty"`
-	Parse     *bool    `json:"parse,omitempty"`
-	SessionID *string  `json:"session_id,omitempty"`
-	URL       []string `json:"url,omitempty"`
-	XHR       *bool    `json:"xhr,omitempty"`
+	Headless *string `json:"headless,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	Parse *bool `json:"parse,omitempty"`
+	SessionID *string `json:"session_id,omitempty"`
+	URL []string `json:"url,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -945,19 +945,19 @@ func NewAmazonBatchParams() *AmazonBatchParams {
 
 // AmazonBestsellersBatchParams contains parameters for the amazon_bestsellers target (batch mode).
 type AmazonBestsellersBatchParams struct {
-	Target      Target   `json:"target"`
-	CallbackURL *string  `json:"callback_url,omitempty"`
-	Category    *string  `json:"category,omitempty"`
-	Currency    *string  `json:"currency,omitempty"`
-	DeviceType  *string  `json:"device_type,omitempty"`
-	Domain      *string  `json:"domain,omitempty"`
-	Geo         *string  `json:"geo,omitempty"`
-	Markdown    *bool    `json:"markdown,omitempty"`
-	PageFrom    *int     `json:"page_from,omitempty"`
-	Parse       *bool    `json:"parse,omitempty"`
-	Query       []string `json:"query,omitempty"`
-	SessionID   *string  `json:"session_id,omitempty"`
-	XHR         *bool    `json:"xhr,omitempty"`
+	Target Target `json:"target"`
+	CallbackURL *string `json:"callback_url,omitempty"`
+	Category *string `json:"category,omitempty"`
+	Currency *string `json:"currency,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
+	Domain *string `json:"domain,omitempty"`
+	Geo *string `json:"geo,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	PageFrom *int `json:"page_from,omitempty"`
+	Parse *bool `json:"parse,omitempty"`
+	Query []string `json:"query,omitempty"`
+	SessionID *string `json:"session_id,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -970,20 +970,20 @@ func NewAmazonBestsellersBatchParams() *AmazonBestsellersBatchParams {
 
 // AmazonPricingBatchParams contains parameters for the amazon_pricing target (batch mode).
 type AmazonPricingBatchParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	Currency    *string `json:"currency,omitempty"`
-	DeviceType  *string `json:"device_type,omitempty"`
-	Domain      *string `json:"domain,omitempty"`
-	Geo         *string `json:"geo,omitempty"`
+	Currency *string `json:"currency,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
+	Domain *string `json:"domain,omitempty"`
+	Geo *string `json:"geo,omitempty"`
 	// Headless valid values: html, png
-	Headless  *string  `json:"headless,omitempty"`
-	Markdown  *bool    `json:"markdown,omitempty"`
-	PageFrom  *int     `json:"page_from,omitempty"`
-	Parse     *bool    `json:"parse,omitempty"`
-	Query     []string `json:"query,omitempty"`
-	SessionID *string  `json:"session_id,omitempty"`
-	XHR       *bool    `json:"xhr,omitempty"`
+	Headless *string `json:"headless,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	PageFrom *int `json:"page_from,omitempty"`
+	Parse *bool `json:"parse,omitempty"`
+	Query []string `json:"query,omitempty"`
+	SessionID *string `json:"session_id,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -996,20 +996,20 @@ func NewAmazonPricingBatchParams() *AmazonPricingBatchParams {
 
 // AmazonProductBatchParams contains parameters for the amazon_product target (batch mode).
 type AmazonProductBatchParams struct {
-	Target            Target  `json:"target"`
-	AutoselectVariant *bool   `json:"autoselect_variant,omitempty"`
-	CallbackURL       *string `json:"callback_url,omitempty"`
-	Currency          *string `json:"currency,omitempty"`
-	DeviceType        *string `json:"device_type,omitempty"`
-	Domain            *string `json:"domain,omitempty"`
-	Geo               *string `json:"geo,omitempty"`
+	Target Target `json:"target"`
+	AutoselectVariant *bool `json:"autoselect_variant,omitempty"`
+	CallbackURL *string `json:"callback_url,omitempty"`
+	Currency *string `json:"currency,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
+	Domain *string `json:"domain,omitempty"`
+	Geo *string `json:"geo,omitempty"`
 	// Headless valid values: html, png
-	Headless  *string  `json:"headless,omitempty"`
-	Markdown  *bool    `json:"markdown,omitempty"`
-	Parse     *bool    `json:"parse,omitempty"`
-	Query     []string `json:"query,omitempty"`
-	SessionID *string  `json:"session_id,omitempty"`
-	XHR       *bool    `json:"xhr,omitempty"`
+	Headless *string `json:"headless,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	Parse *bool `json:"parse,omitempty"`
+	Query []string `json:"query,omitempty"`
+	SessionID *string `json:"session_id,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -1022,23 +1022,23 @@ func NewAmazonProductBatchParams() *AmazonProductBatchParams {
 
 // AmazonSearchBatchParams contains parameters for the amazon_search target (batch mode).
 type AmazonSearchBatchParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	Category    *string `json:"category,omitempty"`
-	Currency    *string `json:"currency,omitempty"`
-	DeviceType  *string `json:"device_type,omitempty"`
-	Domain      *string `json:"domain,omitempty"`
-	Geo         *string `json:"geo,omitempty"`
+	Category *string `json:"category,omitempty"`
+	Currency *string `json:"currency,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
+	Domain *string `json:"domain,omitempty"`
+	Geo *string `json:"geo,omitempty"`
 	// Headless valid values: html, png
-	Headless  *string  `json:"headless,omitempty"`
-	Markdown  *bool    `json:"markdown,omitempty"`
-	Merchant  *string  `json:"merchant,omitempty"`
-	PageFrom  *int     `json:"page_from,omitempty"`
-	Parse     *bool    `json:"parse,omitempty"`
-	Query     []string `json:"query,omitempty"`
-	SessionID *string  `json:"session_id,omitempty"`
-	SortBy    *string  `json:"sort_by,omitempty"`
-	XHR       *bool    `json:"xhr,omitempty"`
+	Headless *string `json:"headless,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	Merchant *string `json:"merchant,omitempty"`
+	PageFrom *int `json:"page_from,omitempty"`
+	Parse *bool `json:"parse,omitempty"`
+	Query []string `json:"query,omitempty"`
+	SessionID *string `json:"session_id,omitempty"`
+	SortBy *string `json:"sort_by,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -1051,18 +1051,18 @@ func NewAmazonSearchBatchParams() *AmazonSearchBatchParams {
 
 // AmazonSellersBatchParams contains parameters for the amazon_sellers target (batch mode).
 type AmazonSellersBatchParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	DeviceType  *string `json:"device_type,omitempty"`
-	Domain      *string `json:"domain,omitempty"`
-	Geo         *string `json:"geo,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
+	Domain *string `json:"domain,omitempty"`
+	Geo *string `json:"geo,omitempty"`
 	// Headless valid values: html, png
-	Headless *string  `json:"headless,omitempty"`
-	Locale   *string  `json:"locale,omitempty"`
-	Markdown *bool    `json:"markdown,omitempty"`
-	Parse    *bool    `json:"parse,omitempty"`
-	Query    []string `json:"query,omitempty"`
-	XHR      *bool    `json:"xhr,omitempty"`
+	Headless *string `json:"headless,omitempty"`
+	Locale *string `json:"locale,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	Parse *bool `json:"parse,omitempty"`
+	Query []string `json:"query,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -1075,15 +1075,15 @@ func NewAmazonSellersBatchParams() *AmazonSellersBatchParams {
 
 // AppleAppStoreBatchParams contains parameters for the apple_app_store target (batch mode).
 type AppleAppStoreBatchParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	DeviceType  *string `json:"device_type,omitempty"`
-	Geo         *string `json:"geo,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
+	Geo *string `json:"geo,omitempty"`
 	// Headless valid values: html, png
-	Headless *string  `json:"headless,omitempty"`
-	Markdown *bool    `json:"markdown,omitempty"`
-	URL      []string `json:"url,omitempty"`
-	XHR      *bool    `json:"xhr,omitempty"`
+	Headless *string `json:"headless,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	URL []string `json:"url,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -1096,15 +1096,15 @@ func NewAppleAppStoreBatchParams() *AppleAppStoreBatchParams {
 
 // AutotraderBatchParams contains parameters for the autotrader target (batch mode).
 type AutotraderBatchParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	DeviceType  *string `json:"device_type,omitempty"`
-	Geo         *string `json:"geo,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
+	Geo *string `json:"geo,omitempty"`
 	// Headless valid values: html, png
-	Headless *string  `json:"headless,omitempty"`
-	Markdown *bool    `json:"markdown,omitempty"`
-	URL      []string `json:"url,omitempty"`
-	XHR      *bool    `json:"xhr,omitempty"`
+	Headless *string `json:"headless,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	URL []string `json:"url,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -1117,15 +1117,15 @@ func NewAutotraderBatchParams() *AutotraderBatchParams {
 
 // BbbBatchParams contains parameters for the bbb target (batch mode).
 type BbbBatchParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	DeviceType  *string `json:"device_type,omitempty"`
-	Geo         *string `json:"geo,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
+	Geo *string `json:"geo,omitempty"`
 	// Headless valid values: html, png
-	Headless *string  `json:"headless,omitempty"`
-	Markdown *bool    `json:"markdown,omitempty"`
-	URL      []string `json:"url,omitempty"`
-	XHR      *bool    `json:"xhr,omitempty"`
+	Headless *string `json:"headless,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	URL []string `json:"url,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -1138,19 +1138,19 @@ func NewBbbBatchParams() *BbbBatchParams {
 
 // BingBatchParams contains parameters for the bing target (batch mode).
 type BingBatchParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	DeviceType  *string `json:"device_type,omitempty"`
-	Geo         *string `json:"geo,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
+	Geo *string `json:"geo,omitempty"`
 	// Headless valid values: html, png
-	Headless  *string  `json:"headless,omitempty"`
-	Locale    *string  `json:"locale,omitempty"`
-	Markdown  *bool    `json:"markdown,omitempty"`
-	PageFrom  *int     `json:"page_from,omitempty"`
-	Parse     *bool    `json:"parse,omitempty"`
-	SessionID *string  `json:"session_id,omitempty"`
-	URL       []string `json:"url,omitempty"`
-	XHR       *bool    `json:"xhr,omitempty"`
+	Headless *string `json:"headless,omitempty"`
+	Locale *string `json:"locale,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	PageFrom *int `json:"page_from,omitempty"`
+	Parse *bool `json:"parse,omitempty"`
+	SessionID *string `json:"session_id,omitempty"`
+	URL []string `json:"url,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -1163,21 +1163,21 @@ func NewBingBatchParams() *BingBatchParams {
 
 // BingSearchBatchParams contains parameters for the bing_search target (batch mode).
 type BingSearchBatchParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	DeviceType  *string `json:"device_type,omitempty"`
-	Domain      *string `json:"domain,omitempty"`
-	Geo         *string `json:"geo,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
+	Domain *string `json:"domain,omitempty"`
+	Geo *string `json:"geo,omitempty"`
 	// Headless valid values: html, png
-	Headless  *string  `json:"headless,omitempty"`
-	Locale    *string  `json:"locale,omitempty"`
-	Markdown  *bool    `json:"markdown,omitempty"`
-	PageCount *int     `json:"page_count,omitempty"`
-	PageFrom  *int     `json:"page_from,omitempty"`
-	Parse     *bool    `json:"parse,omitempty"`
-	Query     []string `json:"query,omitempty"`
-	SessionID *string  `json:"session_id,omitempty"`
-	XHR       *bool    `json:"xhr,omitempty"`
+	Headless *string `json:"headless,omitempty"`
+	Locale *string `json:"locale,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	PageCount *int `json:"page_count,omitempty"`
+	PageFrom *int `json:"page_from,omitempty"`
+	Parse *bool `json:"parse,omitempty"`
+	Query []string `json:"query,omitempty"`
+	SessionID *string `json:"session_id,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -1190,15 +1190,15 @@ func NewBingSearchBatchParams() *BingSearchBatchParams {
 
 // ChatgptBatchParams contains parameters for the chatgpt target (batch mode).
 type ChatgptBatchParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	DeviceType  *string `json:"device_type,omitempty"`
-	Geo         *string `json:"geo,omitempty"`
-	Markdown    *bool   `json:"markdown,omitempty"`
-	Parse       *bool   `json:"parse,omitempty"`
-	Prompt      *string `json:"prompt,omitempty"`
-	Search      *bool   `json:"search,omitempty"`
-	XHR         *bool   `json:"xhr,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
+	Geo *string `json:"geo,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	Parse *bool `json:"parse,omitempty"`
+	Prompt *string `json:"prompt,omitempty"`
+	Search *bool `json:"search,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -1211,12 +1211,12 @@ func NewChatgptBatchParams() *ChatgptBatchParams {
 
 // GeminiBatchParams contains parameters for the gemini target (batch mode).
 type GeminiBatchParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	Geo         *string `json:"geo,omitempty"`
-	Parse       *bool   `json:"parse,omitempty"`
-	Prompt      *string `json:"prompt,omitempty"`
-	XHR         *bool   `json:"xhr,omitempty"`
+	Geo *string `json:"geo,omitempty"`
+	Parse *bool `json:"parse,omitempty"`
+	Prompt *string `json:"prompt,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -1229,18 +1229,18 @@ func NewGeminiBatchParams() *GeminiBatchParams {
 
 // GoogleBatchParams contains parameters for the google target (batch mode).
 type GoogleBatchParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	DeviceType  *string `json:"device_type,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
 	// Headless valid values: html, png
-	Headless  *string  `json:"headless,omitempty"`
-	Locale    *string  `json:"locale,omitempty"`
-	Markdown  *bool    `json:"markdown,omitempty"`
-	PageCount *int     `json:"page_count,omitempty"`
-	Parse     *bool    `json:"parse,omitempty"`
-	SessionID *string  `json:"session_id,omitempty"`
-	URL       []string `json:"url,omitempty"`
-	XHR       *bool    `json:"xhr,omitempty"`
+	Headless *string `json:"headless,omitempty"`
+	Locale *string `json:"locale,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	PageCount *int `json:"page_count,omitempty"`
+	Parse *bool `json:"parse,omitempty"`
+	SessionID *string `json:"session_id,omitempty"`
+	URL []string `json:"url,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -1253,24 +1253,24 @@ func NewGoogleBatchParams() *GoogleBatchParams {
 
 // GoogleAdsBatchParams contains parameters for the google_ads target (batch mode).
 type GoogleAdsBatchParams struct {
-	Target                Target  `json:"target"`
-	CallbackURL           *string `json:"callback_url,omitempty"`
-	DeviceType            *string `json:"device_type,omitempty"`
-	Geo                   *string `json:"geo,omitempty"`
-	GoogleNfpr            *bool   `json:"google_nfpr,omitempty"`
+	Target Target `json:"target"`
+	CallbackURL *string `json:"callback_url,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
+	Geo *string `json:"geo,omitempty"`
+	GoogleNfpr *bool `json:"google_nfpr,omitempty"`
 	GoogleResultsLanguage *string `json:"google_results_language,omitempty"`
-	GoogleTbm             *string `json:"google_tbm,omitempty"`
-	GoogleTbs             *string `json:"google_tbs,omitempty"`
+	GoogleTbm *string `json:"google_tbm,omitempty"`
+	GoogleTbs *string `json:"google_tbs,omitempty"`
 	// Headless valid values: html, png
-	Headless  *string  `json:"headless,omitempty"`
-	Locale    *string  `json:"locale,omitempty"`
-	Markdown  *bool    `json:"markdown,omitempty"`
-	PageCount *int     `json:"page_count,omitempty"`
-	PageFrom  *int     `json:"page_from,omitempty"`
-	Parse     *bool    `json:"parse,omitempty"`
-	Query     []string `json:"query,omitempty"`
-	SessionID *string  `json:"session_id,omitempty"`
-	XHR       *bool    `json:"xhr,omitempty"`
+	Headless *string `json:"headless,omitempty"`
+	Locale *string `json:"locale,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	PageCount *int `json:"page_count,omitempty"`
+	PageFrom *int `json:"page_from,omitempty"`
+	Parse *bool `json:"parse,omitempty"`
+	Query []string `json:"query,omitempty"`
+	SessionID *string `json:"session_id,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -1283,15 +1283,15 @@ func NewGoogleAdsBatchParams() *GoogleAdsBatchParams {
 
 // GoogleAiModeBatchParams contains parameters for the google_ai_mode target (batch mode).
 type GoogleAiModeBatchParams struct {
-	Target      Target   `json:"target"`
-	CallbackURL *string  `json:"callback_url,omitempty"`
-	DeviceType  *string  `json:"device_type,omitempty"`
-	Geo         *string  `json:"geo,omitempty"`
-	Markdown    *bool    `json:"markdown,omitempty"`
-	Parse       *bool    `json:"parse,omitempty"`
-	Query       []string `json:"query,omitempty"`
-	SessionID   *string  `json:"session_id,omitempty"`
-	XHR         *bool    `json:"xhr,omitempty"`
+	Target Target `json:"target"`
+	CallbackURL *string `json:"callback_url,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
+	Geo *string `json:"geo,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	Parse *bool `json:"parse,omitempty"`
+	Query []string `json:"query,omitempty"`
+	SessionID *string `json:"session_id,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -1304,14 +1304,14 @@ func NewGoogleAiModeBatchParams() *GoogleAiModeBatchParams {
 
 // GoogleLensBatchParams contains parameters for the google_lens target (batch mode).
 type GoogleLensBatchParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	DeviceType  *string `json:"device_type,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
 	// Headless valid values: html, png
-	Headless *string  `json:"headless,omitempty"`
-	Markdown *bool    `json:"markdown,omitempty"`
-	Parse    *bool    `json:"parse,omitempty"`
-	Query    []string `json:"query,omitempty"`
+	Headless *string `json:"headless,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	Parse *bool `json:"parse,omitempty"`
+	Query []string `json:"query,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -1324,25 +1324,25 @@ func NewGoogleLensBatchParams() *GoogleLensBatchParams {
 
 // GoogleSearchBatchParams contains parameters for the google_search target (batch mode).
 type GoogleSearchBatchParams struct {
-	Target                Target  `json:"target"`
-	CallbackURL           *string `json:"callback_url,omitempty"`
-	DeviceType            *string `json:"device_type,omitempty"`
-	Geo                   *string `json:"geo,omitempty"`
-	GoogleNfpr            *bool   `json:"google_nfpr,omitempty"`
+	Target Target `json:"target"`
+	CallbackURL *string `json:"callback_url,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
+	Geo *string `json:"geo,omitempty"`
+	GoogleNfpr *bool `json:"google_nfpr,omitempty"`
 	GoogleResultsLanguage *string `json:"google_results_language,omitempty"`
-	GoogleSafeSearch      *bool   `json:"google_safe_search,omitempty"`
-	GoogleTbm             *string `json:"google_tbm,omitempty"`
-	GoogleTbs             *string `json:"google_tbs,omitempty"`
+	GoogleSafeSearch *bool `json:"google_safe_search,omitempty"`
+	GoogleTbm *string `json:"google_tbm,omitempty"`
+	GoogleTbs *string `json:"google_tbs,omitempty"`
 	// Headless valid values: html, png
-	Headless  *string  `json:"headless,omitempty"`
-	Locale    *string  `json:"locale,omitempty"`
-	Markdown  *bool    `json:"markdown,omitempty"`
-	PageCount *int     `json:"page_count,omitempty"`
-	PageFrom  *int     `json:"page_from,omitempty"`
-	Parse     *bool    `json:"parse,omitempty"`
-	Query     []string `json:"query,omitempty"`
-	SessionID *string  `json:"session_id,omitempty"`
-	XHR       *bool    `json:"xhr,omitempty"`
+	Headless *string `json:"headless,omitempty"`
+	Locale *string `json:"locale,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	PageCount *int `json:"page_count,omitempty"`
+	PageFrom *int `json:"page_from,omitempty"`
+	Parse *bool `json:"parse,omitempty"`
+	Query []string `json:"query,omitempty"`
+	SessionID *string `json:"session_id,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -1355,20 +1355,20 @@ func NewGoogleSearchBatchParams() *GoogleSearchBatchParams {
 
 // GoogleTravelHotelsBatchParams contains parameters for the google_travel_hotels target (batch mode).
 type GoogleTravelHotelsBatchParams struct {
-	Target      Target  `json:"target"`
-	Adults      *int    `json:"adults,omitempty"`
+	Target Target `json:"target"`
+	Adults *int `json:"adults,omitempty"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	Children    *int    `json:"children,omitempty"`
-	DateRange   *string `json:"date_range,omitempty"`
-	DeviceType  *string `json:"device_type,omitempty"`
+	Children *int `json:"children,omitempty"`
+	DateRange *string `json:"date_range,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
 	// Headless valid values: html, png
-	Headless  *string  `json:"headless,omitempty"`
-	Locale    *string  `json:"locale,omitempty"`
-	Markdown  *bool    `json:"markdown,omitempty"`
-	PageFrom  *int     `json:"page_from,omitempty"`
-	Query     []string `json:"query,omitempty"`
-	SessionID *string  `json:"session_id,omitempty"`
-	Stars     *int     `json:"stars,omitempty"`
+	Headless *string `json:"headless,omitempty"`
+	Locale *string `json:"locale,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	PageFrom *int `json:"page_from,omitempty"`
+	Query []string `json:"query,omitempty"`
+	SessionID *string `json:"session_id,omitempty"`
+	Stars *int `json:"stars,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -1381,15 +1381,15 @@ func NewGoogleTravelHotelsBatchParams() *GoogleTravelHotelsBatchParams {
 
 // MobileBatchParams contains parameters for the mobile target (batch mode).
 type MobileBatchParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	DeviceType  *string `json:"device_type,omitempty"`
-	Geo         *string `json:"geo,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
+	Geo *string `json:"geo,omitempty"`
 	// Headless valid values: html, png
-	Headless *string  `json:"headless,omitempty"`
-	Markdown *bool    `json:"markdown,omitempty"`
-	URL      []string `json:"url,omitempty"`
-	XHR      *bool    `json:"xhr,omitempty"`
+	Headless *string `json:"headless,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	URL []string `json:"url,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -1402,14 +1402,14 @@ func NewMobileBatchParams() *MobileBatchParams {
 
 // PerplexityBatchParams contains parameters for the perplexity target (batch mode).
 type PerplexityBatchParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	DeviceType  *string `json:"device_type,omitempty"`
-	Geo         *string `json:"geo,omitempty"`
-	Markdown    *bool   `json:"markdown,omitempty"`
-	Parse       *bool   `json:"parse,omitempty"`
-	Prompt      *string `json:"prompt,omitempty"`
-	XHR         *bool   `json:"xhr,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
+	Geo *string `json:"geo,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	Parse *bool `json:"parse,omitempty"`
+	Prompt *string `json:"prompt,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -1422,11 +1422,11 @@ func NewPerplexityBatchParams() *PerplexityBatchParams {
 
 // RedditPostBatchParams contains parameters for the reddit_post target (batch mode).
 type RedditPostBatchParams struct {
-	Target      Target   `json:"target"`
-	CallbackURL *string  `json:"callback_url,omitempty"`
-	Geo         *string  `json:"geo,omitempty"`
-	Locale      *string  `json:"locale,omitempty"`
-	URL         []string `json:"url,omitempty"`
+	Target Target `json:"target"`
+	CallbackURL *string `json:"callback_url,omitempty"`
+	Geo *string `json:"geo,omitempty"`
+	Locale *string `json:"locale,omitempty"`
+	URL []string `json:"url,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -1439,11 +1439,11 @@ func NewRedditPostBatchParams() *RedditPostBatchParams {
 
 // RedditSubredditBatchParams contains parameters for the reddit_subreddit target (batch mode).
 type RedditSubredditBatchParams struct {
-	Target      Target   `json:"target"`
-	CallbackURL *string  `json:"callback_url,omitempty"`
-	Geo         *string  `json:"geo,omitempty"`
-	Locale      *string  `json:"locale,omitempty"`
-	URL         []string `json:"url,omitempty"`
+	Target Target `json:"target"`
+	CallbackURL *string `json:"callback_url,omitempty"`
+	Geo *string `json:"geo,omitempty"`
+	Locale *string `json:"locale,omitempty"`
+	URL []string `json:"url,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -1456,12 +1456,12 @@ func NewRedditSubredditBatchParams() *RedditSubredditBatchParams {
 
 // RedditUserBatchParams contains parameters for the reddit_user target (batch mode).
 type RedditUserBatchParams struct {
-	Target      Target   `json:"target"`
-	CallbackURL *string  `json:"callback_url,omitempty"`
-	Geo         *string  `json:"geo,omitempty"`
-	Locale      *string  `json:"locale,omitempty"`
-	Sort        *string  `json:"sort,omitempty"`
-	URL         []string `json:"url,omitempty"`
+	Target Target `json:"target"`
+	CallbackURL *string `json:"callback_url,omitempty"`
+	Geo *string `json:"geo,omitempty"`
+	Locale *string `json:"locale,omitempty"`
+	Sort *string `json:"sort,omitempty"`
+	URL []string `json:"url,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -1474,15 +1474,15 @@ func NewRedditUserBatchParams() *RedditUserBatchParams {
 
 // TargetBatchParams contains parameters for the target target (batch mode).
 type TargetBatchParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
 	DeliveryZip *string `json:"delivery_zip,omitempty"`
-	DeviceType  *string `json:"device_type,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
 	// Headless valid values: html, png
-	Headless      *string  `json:"headless,omitempty"`
-	TargetStoreID *string  `json:"target_store_id,omitempty"`
-	URL           []string `json:"url,omitempty"`
-	XHR           *bool    `json:"xhr,omitempty"`
+	Headless *string `json:"headless,omitempty"`
+	TargetStoreID *string `json:"target_store_id,omitempty"`
+	URL []string `json:"url,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -1495,18 +1495,18 @@ func NewTargetBatchParams() *TargetBatchParams {
 
 // TargetProductBatchParams contains parameters for the target_product target (batch mode).
 type TargetProductBatchParams struct {
-	Target       Target  `json:"target"`
-	CallbackURL  *string `json:"callback_url,omitempty"`
+	Target Target `json:"target"`
+	CallbackURL *string `json:"callback_url,omitempty"`
 	DeliveryType *string `json:"delivery_type,omitempty"`
-	DeliveryZip  *string `json:"delivery_zip,omitempty"`
-	DeviceType   *string `json:"device_type,omitempty"`
+	DeliveryZip *string `json:"delivery_zip,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
 	// Headless valid values: html, png
-	Headless      *string `json:"headless,omitempty"`
-	Markdown      *bool   `json:"markdown,omitempty"`
-	Parse         *bool   `json:"parse,omitempty"`
-	ProductID     *string `json:"product_id,omitempty"`
+	Headless *string `json:"headless,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	Parse *bool `json:"parse,omitempty"`
+	ProductID *string `json:"product_id,omitempty"`
 	TargetStoreID *string `json:"target_store_id,omitempty"`
-	XHR           *bool   `json:"xhr,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -1519,18 +1519,18 @@ func NewTargetProductBatchParams() *TargetProductBatchParams {
 
 // TargetSearchBatchParams contains parameters for the target_search target (batch mode).
 type TargetSearchBatchParams struct {
-	Target       Target  `json:"target"`
-	CallbackURL  *string `json:"callback_url,omitempty"`
+	Target Target `json:"target"`
+	CallbackURL *string `json:"callback_url,omitempty"`
 	DeliveryType *string `json:"delivery_type,omitempty"`
-	DeliveryZip  *string `json:"delivery_zip,omitempty"`
-	DeviceType   *string `json:"device_type,omitempty"`
+	DeliveryZip *string `json:"delivery_zip,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
 	// Headless valid values: html, png
-	Headless      *string  `json:"headless,omitempty"`
-	Markdown      *bool    `json:"markdown,omitempty"`
-	Parse         *bool    `json:"parse,omitempty"`
-	Query         []string `json:"query,omitempty"`
-	TargetStoreID *string  `json:"target_store_id,omitempty"`
-	XHR           *bool    `json:"xhr,omitempty"`
+	Headless *string `json:"headless,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	Parse *bool `json:"parse,omitempty"`
+	Query []string `json:"query,omitempty"`
+	TargetStoreID *string `json:"target_store_id,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -1543,12 +1543,12 @@ func NewTargetSearchBatchParams() *TargetSearchBatchParams {
 
 // TiktokBatchParams contains parameters for the tiktok target (batch mode).
 type TiktokBatchParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
 	// Headless valid values: html, png
-	Headless      *string  `json:"headless,omitempty"`
-	URL           []string `json:"url,omitempty"`
-	UserAgentType *string  `json:"user_agent_type,omitempty"`
+	Headless *string `json:"headless,omitempty"`
+	URL []string `json:"url,omitempty"`
+	UserAgentType *string `json:"user_agent_type,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -1561,10 +1561,10 @@ func NewTiktokBatchParams() *TiktokBatchParams {
 
 // TiktokPostBatchParams contains parameters for the tiktok_post target (batch mode).
 type TiktokPostBatchParams struct {
-	Target      Target   `json:"target"`
-	CallbackURL *string  `json:"callback_url,omitempty"`
-	URL         []string `json:"url,omitempty"`
-	XHR         *bool    `json:"xhr,omitempty"`
+	Target Target `json:"target"`
+	CallbackURL *string `json:"callback_url,omitempty"`
+	URL []string `json:"url,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -1577,15 +1577,15 @@ func NewTiktokPostBatchParams() *TiktokPostBatchParams {
 
 // TiktokShopProductBatchParams contains parameters for the tiktok_shop_product target (batch mode).
 type TiktokShopProductBatchParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	Country     *string `json:"country,omitempty"`
-	DeviceType  *string `json:"device_type,omitempty"`
+	Country *string `json:"country,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
 	// Headless valid values: html, png
-	Headless  *string `json:"headless,omitempty"`
-	Markdown  *bool   `json:"markdown,omitempty"`
+	Headless *string `json:"headless,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
 	ProductID *string `json:"product_id,omitempty"`
-	XHR       *bool   `json:"xhr,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -1598,14 +1598,14 @@ func NewTiktokShopProductBatchParams() *TiktokShopProductBatchParams {
 
 // TiktokShopSearchBatchParams contains parameters for the tiktok_shop_search target (batch mode).
 type TiktokShopSearchBatchParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	Country     *string `json:"country,omitempty"`
-	DeviceType  *string `json:"device_type,omitempty"`
+	Country *string `json:"country,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
 	// Headless valid values: html, png
-	Headless *string  `json:"headless,omitempty"`
-	Markdown *bool    `json:"markdown,omitempty"`
-	Query    []string `json:"query,omitempty"`
+	Headless *string `json:"headless,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	Query []string `json:"query,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -1618,26 +1618,26 @@ func NewTiktokShopSearchBatchParams() *TiktokShopSearchBatchParams {
 
 // UniversalBatchParams contains parameters for the universal target (batch mode).
 type UniversalBatchParams struct {
-	Target       Target                 `json:"target"`
-	CallbackURL  *string                `json:"callback_url,omitempty"`
-	Cookies      map[string]interface{} `json:"cookies,omitempty"`
-	DeviceType   *string                `json:"device_type,omitempty"`
-	ForceCookies *bool                  `json:"force_cookies,omitempty"`
-	ForceHeaders *bool                  `json:"force_headers,omitempty"`
-	Geo          *string                `json:"geo,omitempty"`
-	Headers      map[string]interface{} `json:"headers,omitempty"`
+	Target Target `json:"target"`
+	CallbackURL *string `json:"callback_url,omitempty"`
+	Cookies map[string]interface{} `json:"cookies,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
+	ForceCookies *bool `json:"force_cookies,omitempty"`
+	ForceHeaders *bool `json:"force_headers,omitempty"`
+	Geo *string `json:"geo,omitempty"`
+	Headers map[string]interface{} `json:"headers,omitempty"`
 	// Headless valid values: html, png
-	Headless   *string `json:"headless,omitempty"`
+	Headless *string `json:"headless,omitempty"`
 	HTTPMethod *string `json:"http_method,omitempty"`
-	Locale     *string `json:"locale,omitempty"`
-	Markdown   *bool   `json:"markdown,omitempty"`
-	Payload    *string `json:"payload,omitempty"`
+	Locale *string `json:"locale,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	Payload *string `json:"payload,omitempty"`
 	// ProxyPool valid values: standard, premium
-	ProxyPool             *string   `json:"proxy_pool,omitempty"`
-	SessionID             *string   `json:"session_id,omitempty"`
+	ProxyPool *string `json:"proxy_pool,omitempty"`
+	SessionID *string `json:"session_id,omitempty"`
 	SuccessfulStatusCodes []float64 `json:"successful_status_codes,omitempty"`
-	URL                   []string  `json:"url,omitempty"`
-	XHR                   *bool     `json:"xhr,omitempty"`
+	URL []string `json:"url,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -1650,17 +1650,17 @@ func NewUniversalBatchParams() *UniversalBatchParams {
 
 // WalmartBatchParams contains parameters for the walmart target (batch mode).
 type WalmartBatchParams struct {
-	Target      Target  `json:"target"`
+	Target Target `json:"target"`
 	CallbackURL *string `json:"callback_url,omitempty"`
-	DeviceType  *string `json:"device_type,omitempty"`
-	Geo         *string `json:"geo,omitempty"`
+	DeviceType *string `json:"device_type,omitempty"`
+	Geo *string `json:"geo,omitempty"`
 	// Headless valid values: html, png
-	Headless *string  `json:"headless,omitempty"`
-	Locale   *string  `json:"locale,omitempty"`
-	Markdown *bool    `json:"markdown,omitempty"`
-	StoreID  *string  `json:"store_id,omitempty"`
-	URL      []string `json:"url,omitempty"`
-	XHR      *bool    `json:"xhr,omitempty"`
+	Headless *string `json:"headless,omitempty"`
+	Locale *string `json:"locale,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	StoreID *string `json:"store_id,omitempty"`
+	URL []string `json:"url,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -1673,17 +1673,17 @@ func NewWalmartBatchParams() *WalmartBatchParams {
 
 // WalmartProductBatchParams contains parameters for the walmart_product target (batch mode).
 type WalmartProductBatchParams struct {
-	Target          Target  `json:"target"`
-	CallbackURL     *string `json:"callback_url,omitempty"`
-	DeliveryZip     *string `json:"delivery_zip,omitempty"`
+	Target Target `json:"target"`
+	CallbackURL *string `json:"callback_url,omitempty"`
+	DeliveryZip *string `json:"delivery_zip,omitempty"`
 	FulfillmentType *string `json:"fulfillment_type,omitempty"`
 	// Headless valid values: html, png
-	Headless       *string `json:"headless,omitempty"`
-	Markdown       *bool   `json:"markdown,omitempty"`
-	Parse          *bool   `json:"parse,omitempty"`
-	ProductID      *string `json:"product_id,omitempty"`
+	Headless *string `json:"headless,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	Parse *bool `json:"parse,omitempty"`
+	ProductID *string `json:"product_id,omitempty"`
 	WalmartStoreID *string `json:"walmart_store_id,omitempty"`
-	XHR            *bool   `json:"xhr,omitempty"`
+	XHR *bool `json:"xhr,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -1696,16 +1696,16 @@ func NewWalmartProductBatchParams() *WalmartProductBatchParams {
 
 // WalmartSearchBatchParams contains parameters for the walmart_search target (batch mode).
 type WalmartSearchBatchParams struct {
-	Target          Target  `json:"target"`
-	CallbackURL     *string `json:"callback_url,omitempty"`
-	DeliveryZip     *string `json:"delivery_zip,omitempty"`
+	Target Target `json:"target"`
+	CallbackURL *string `json:"callback_url,omitempty"`
+	DeliveryZip *string `json:"delivery_zip,omitempty"`
 	FulfillmentType *string `json:"fulfillment_type,omitempty"`
 	// Headless valid values: html, png
-	Headless       *string  `json:"headless,omitempty"`
-	Markdown       *bool    `json:"markdown,omitempty"`
-	Parse          *bool    `json:"parse,omitempty"`
-	Query          []string `json:"query,omitempty"`
-	WalmartStoreID *string  `json:"walmart_store_id,omitempty"`
+	Headless *string `json:"headless,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	Parse *bool `json:"parse,omitempty"`
+	Query []string `json:"query,omitempty"`
+	WalmartStoreID *string `json:"walmart_store_id,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -1718,12 +1718,12 @@ func NewWalmartSearchBatchParams() *WalmartSearchBatchParams {
 
 // YoutubeChannelBatchParams contains parameters for the youtube_channel target (batch mode).
 type YoutubeChannelBatchParams struct {
-	Target      Target   `json:"target"`
-	CallbackURL *string  `json:"callback_url,omitempty"`
-	Limit       *int     `json:"limit,omitempty"`
-	Markdown    *bool    `json:"markdown,omitempty"`
-	Parse       *bool    `json:"parse,omitempty"`
-	Query       []string `json:"query,omitempty"`
+	Target Target `json:"target"`
+	CallbackURL *string `json:"callback_url,omitempty"`
+	Limit *int `json:"limit,omitempty"`
+	Markdown *bool `json:"markdown,omitempty"`
+	Parse *bool `json:"parse,omitempty"`
+	Query []string `json:"query,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -1736,9 +1736,9 @@ func NewYoutubeChannelBatchParams() *YoutubeChannelBatchParams {
 
 // YoutubeMetadataBatchParams contains parameters for the youtube_metadata target (batch mode).
 type YoutubeMetadataBatchParams struct {
-	Target      Target   `json:"target"`
-	CallbackURL *string  `json:"callback_url,omitempty"`
-	Query       []string `json:"query,omitempty"`
+	Target Target `json:"target"`
+	CallbackURL *string `json:"callback_url,omitempty"`
+	Query []string `json:"query,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -1751,24 +1751,24 @@ func NewYoutubeMetadataBatchParams() *YoutubeMetadataBatchParams {
 
 // YoutubeSearchBatchParams contains parameters for the youtube_search target (batch mode).
 type YoutubeSearchBatchParams struct {
-	Target          Target   `json:"target"`
-	F360            *bool    `json:"360,omitempty"`
-	F3d             *bool    `json:"3d,omitempty"`
-	F4k             *bool    `json:"4k,omitempty"`
-	CallbackURL     *string  `json:"callback_url,omitempty"`
-	CreativeCommons *bool    `json:"creative_commons,omitempty"`
-	Duration        *string  `json:"duration,omitempty"`
-	Hd              *bool    `json:"hd,omitempty"`
-	Hdr             *bool    `json:"hdr,omitempty"`
-	Live            *bool    `json:"live,omitempty"`
-	Location        *bool    `json:"location,omitempty"`
-	Purchased       *bool    `json:"purchased,omitempty"`
-	Query           []string `json:"query,omitempty"`
-	Subtitles       *bool    `json:"subtitles,omitempty"`
-	Type            *string  `json:"type,omitempty"`
-	UploadDate      *string  `json:"upload_date,omitempty"`
-	VideoSortBy     *string  `json:"video_sort_by,omitempty"`
-	Vr180           *bool    `json:"vr180,omitempty"`
+	Target Target `json:"target"`
+	F360 *bool `json:"360,omitempty"`
+	F3d *bool `json:"3d,omitempty"`
+	F4k *bool `json:"4k,omitempty"`
+	CallbackURL *string `json:"callback_url,omitempty"`
+	CreativeCommons *bool `json:"creative_commons,omitempty"`
+	Duration *string `json:"duration,omitempty"`
+	Hd *bool `json:"hd,omitempty"`
+	Hdr *bool `json:"hdr,omitempty"`
+	Live *bool `json:"live,omitempty"`
+	Location *bool `json:"location,omitempty"`
+	Purchased *bool `json:"purchased,omitempty"`
+	Query []string `json:"query,omitempty"`
+	Subtitles *bool `json:"subtitles,omitempty"`
+	Type *string `json:"type,omitempty"`
+	UploadDate *string `json:"upload_date,omitempty"`
+	VideoSortBy *string `json:"video_sort_by,omitempty"`
+	Vr180 *bool `json:"vr180,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
@@ -1781,11 +1781,11 @@ func NewYoutubeSearchBatchParams() *YoutubeSearchBatchParams {
 
 // YoutubeSubtitlesBatchParams contains parameters for the youtube_subtitles target (batch mode).
 type YoutubeSubtitlesBatchParams struct {
-	Target         Target   `json:"target"`
-	CallbackURL    *string  `json:"callback_url,omitempty"`
-	LanguageCode   *string  `json:"language_code,omitempty"`
-	Query          []string `json:"query,omitempty"`
-	SubtitleOrigin *string  `json:"subtitle_origin,omitempty"`
+	Target Target `json:"target"`
+	CallbackURL *string `json:"callback_url,omitempty"`
+	LanguageCode *string `json:"language_code,omitempty"`
+	Query []string `json:"query,omitempty"`
+	SubtitleOrigin *string `json:"subtitle_origin,omitempty"`
 }
 
 // GetTarget implements ScrapeRequest.
