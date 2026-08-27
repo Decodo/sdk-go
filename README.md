@@ -437,13 +437,8 @@ Each target takes one primary input field, `URL`, `Query`, `ProductID`, or `Prom
 | Target | Description | Primary input | Constructor |
 | --- | --- | --- | --- |
 | `google_search` | Google Search results for a query | `Query` | `NewGoogleSearchParams()` |
-| `google_maps` | Google Maps search results | `Query` | `NewGoogleMapsParams()` |
-| `google_shopping_search` | Google Shopping search results | `Query` | `NewGoogleShoppingSearchParams()` |
-| `google_shopping_product` | Google Shopping product page | `Query` | `NewGoogleShoppingProductParams()` |
-| `google_suggest` | Google Autocomplete suggestions | `Query` | `NewGoogleSuggestParams()` |
 | `google_lens` | Google Lens reverse image search | `Query` | `NewGoogleLensParams()` |
 | `google_travel_hotels` | Google Travel hotel listings | `Query` | `NewGoogleTravelHotelsParams()` |
-| `google_trends_explore` | Google Trends explore data | `Query` | `NewGoogleTrendsExploreParams()` |
 | `google_ads` | Google Ads results for a query | `Query` | `NewGoogleAdsParams()` |
 | `bing_search` | Bing Search results | `Query` | `NewBingSearchParams()` |
 | `bing` | Raw Bing URL scraping | `URL` | `NewBingParams()` |
@@ -463,8 +458,6 @@ Each target takes one primary input field, `URL`, `Query`, `ProductID`, or `Prom
 | `target_product` | Target.com product page by product ID | `ProductID` | `NewTargetProductParams()` |
 | `target_search` | Target.com search results | `Query` | `NewTargetSearchParams()` |
 | `target` | Raw Target.com URL scraping | `URL` | `NewTargetParams()` |
-| `lowes_search` | Lowe's search results | `Query` | `NewLowesSearchParams()` |
-| `ecommerce` | Generic eCommerce page with parser | `URL` | `NewEcommerceParams()` |
 
 ### Social media
 
@@ -473,18 +466,14 @@ Each target takes one primary input field, `URL`, `Query`, `ProductID`, or `Prom
 | `reddit_post` | Reddit post by URL | `URL` | `NewRedditPostParams()` |
 | `reddit_subreddit` | Reddit subreddit by URL | `URL` | `NewRedditSubredditParams()` |
 | `reddit_user` | Reddit user profile by URL | `URL` | `NewRedditUserParams()` |
-| `youtube_video` | YouTube video by ID | `Query` | `NewYoutubeVideoParams()` |
 | `youtube_search` | YouTube search results | `Query` | `NewYoutubeSearchParams()` |
-| `youtube_search_max` | YouTube search results (extended) | `Query` | `NewYoutubeSearchMaxParams()` |
 | `youtube_metadata` | YouTube video metadata by ID | `Query` | `NewYoutubeMetadataParams()` |
-| `youtube_transcript` | YouTube video transcript by ID | `Query` | `NewYoutubeTranscriptParams()` |
 | `youtube_subtitles` | YouTube video subtitles by ID | `Query` | `NewYoutubeSubtitlesParams()` |
 | `youtube_channel` | YouTube channel by handle or ID | `Query` | `NewYoutubeChannelParams()` |
 | `tiktok_post` | TikTok post by URL | `URL` | `NewTiktokPostParams()` |
 | `tiktok_shop_search` | TikTok Shop search results | `Query` | `NewTiktokShopSearchParams()` |
 | `tiktok_shop_product` | TikTok Shop product page by product ID | `ProductID` | `NewTiktokShopProductParams()` |
 | `tiktok` | Raw TikTok URL scraping | `URL` | `NewTiktokParams()` |
-| `instagram_graphql_profile` | Instagram profile via GraphQL | `Query` | `NewInstagramGraphqlProfileParams()` |
 
 ### AI tools
 
@@ -603,7 +592,7 @@ Three things to keep in mind:
 - [`async/google_search_async/`](./examples/web_scraping_api/async/google_search_async/) for a task with polling
 - [`batch/google_search_batch/`](./examples/web_scraping_api/batch/google_search_batch/) for a batch task with polling
 
-Raw URL targets use a `_url` suffix, so `google` is [`google_url/`](./examples/web_scraping_api/google_url/) and `amazon` is [`amazon_url/`](./examples/web_scraping_api/amazon_url/). A few directories are named after the site rather than the target, such as [`mobile_de/`](./examples/web_scraping_api/mobile_de/) for `mobile` and [`instagram_profile/`](./examples/web_scraping_api/instagram_profile/) for `instagram_graphql_profile`.
+Raw URL targets use a `_url` suffix, so `google` is [`google_url/`](./examples/web_scraping_api/google_url/) and `amazon` is [`amazon_url/`](./examples/web_scraping_api/amazon_url/). A few directories are named after the site rather than the target, such as [`mobile_de/`](./examples/web_scraping_api/mobile_de/) for `mobile`.
 
 Run any of them with:
 
