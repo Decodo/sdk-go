@@ -608,7 +608,8 @@ Raw URL targets use a `_url` suffix, so `google` is [`google_url/`](./examples/w
 Run any of them with:
 
 ```bash
-DECODO_TOKEN=your_token go run ./examples/web_scraping_api/google_search
+export DECODO_TOKEN=your_token
+go run ./examples/web_scraping_api/google_search
 ```
 
 ## Code generation
