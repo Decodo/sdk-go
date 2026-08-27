@@ -8,58 +8,46 @@ type Target string
 
 // Target constants for all supported scrape targets.
 const (
-	TargetAirbnb Target = "airbnb"
-	TargetAmazon Target = "amazon"
-	TargetAmazonBestsellers Target = "amazon_bestsellers"
-	TargetAmazonPricing Target = "amazon_pricing"
-	TargetAmazonProduct Target = "amazon_product"
-	TargetAmazonSearch Target = "amazon_search"
-	TargetAmazonSellers Target = "amazon_sellers"
-	TargetAppleAppStore Target = "apple_app_store"
-	TargetAutotrader Target = "autotrader"
-	TargetBbb Target = "bbb"
-	TargetBing Target = "bing"
-	TargetBingSearch Target = "bing_search"
-	TargetChatgpt Target = "chatgpt"
-	TargetEcommerce Target = "ecommerce"
-	TargetGemini Target = "gemini"
-	TargetGoogle Target = "google"
-	TargetGoogleAds Target = "google_ads"
-	TargetGoogleAiMode Target = "google_ai_mode"
-	TargetGoogleLens Target = "google_lens"
-	TargetGoogleMaps Target = "google_maps"
-	TargetGoogleSearch Target = "google_search"
-	TargetGoogleShoppingProduct Target = "google_shopping_product"
-	TargetGoogleShoppingSearch Target = "google_shopping_search"
-	TargetGoogleSuggest Target = "google_suggest"
+	TargetAirbnb             Target = "airbnb"
+	TargetAmazon             Target = "amazon"
+	TargetAmazonBestsellers  Target = "amazon_bestsellers"
+	TargetAmazonPricing      Target = "amazon_pricing"
+	TargetAmazonProduct      Target = "amazon_product"
+	TargetAmazonSearch       Target = "amazon_search"
+	TargetAmazonSellers      Target = "amazon_sellers"
+	TargetAppleAppStore      Target = "apple_app_store"
+	TargetAutotrader         Target = "autotrader"
+	TargetBbb                Target = "bbb"
+	TargetBing               Target = "bing"
+	TargetBingSearch         Target = "bing_search"
+	TargetChatgpt            Target = "chatgpt"
+	TargetGemini             Target = "gemini"
+	TargetGoogle             Target = "google"
+	TargetGoogleAds          Target = "google_ads"
+	TargetGoogleAiMode       Target = "google_ai_mode"
+	TargetGoogleLens         Target = "google_lens"
+	TargetGoogleSearch       Target = "google_search"
 	TargetGoogleTravelHotels Target = "google_travel_hotels"
-	TargetGoogleTrendsExplore Target = "google_trends_explore"
-	TargetInstagramGraphqlProfile Target = "instagram_graphql_profile"
-	TargetLowesSearch Target = "lowes_search"
-	TargetMobile Target = "mobile"
-	TargetPerplexity Target = "perplexity"
-	TargetRedditPost Target = "reddit_post"
-	TargetRedditSubreddit Target = "reddit_subreddit"
-	TargetRedditUser Target = "reddit_user"
-	TargetTarget Target = "target"
-	TargetTargetProduct Target = "target_product"
-	TargetTargetSearch Target = "target_search"
-	TargetTiktok Target = "tiktok"
-	TargetTiktokPost Target = "tiktok_post"
-	TargetTiktokShopProduct Target = "tiktok_shop_product"
-	TargetTiktokShopSearch Target = "tiktok_shop_search"
-	TargetUniversal Target = "universal"
-	TargetUniversalEcommerce Target = "universal_ecommerce"
-	TargetWalmart Target = "walmart"
-	TargetWalmartProduct Target = "walmart_product"
-	TargetWalmartSearch Target = "walmart_search"
-	TargetYoutubeChannel Target = "youtube_channel"
-	TargetYoutubeMetadata Target = "youtube_metadata"
-	TargetYoutubeSearch Target = "youtube_search"
-	TargetYoutubeSearchMax Target = "youtube_search_max"
-	TargetYoutubeSubtitles Target = "youtube_subtitles"
-	TargetYoutubeTranscript Target = "youtube_transcript"
-	TargetYoutubeVideo Target = "youtube_video"
+	TargetMobile             Target = "mobile"
+	TargetPerplexity         Target = "perplexity"
+	TargetRedditPost         Target = "reddit_post"
+	TargetRedditSubreddit    Target = "reddit_subreddit"
+	TargetRedditUser         Target = "reddit_user"
+	TargetTarget             Target = "target"
+	TargetTargetProduct      Target = "target_product"
+	TargetTargetSearch       Target = "target_search"
+	TargetTiktok             Target = "tiktok"
+	TargetTiktokPost         Target = "tiktok_post"
+	TargetTiktokShopProduct  Target = "tiktok_shop_product"
+	TargetTiktokShopSearch   Target = "tiktok_shop_search"
+	TargetUniversal          Target = "universal"
+	TargetWalmart            Target = "walmart"
+	TargetWalmartProduct     Target = "walmart_product"
+	TargetWalmartSearch      Target = "walmart_search"
+	TargetYoutubeChannel     Target = "youtube_channel"
+	TargetYoutubeMetadata    Target = "youtube_metadata"
+	TargetYoutubeSearch      Target = "youtube_search"
+	TargetYoutubeSubtitles   Target = "youtube_subtitles"
 )
 
 // Targets contains all available scrape targets.
@@ -77,21 +65,13 @@ var Targets = []Target{
 	TargetBing,
 	TargetBingSearch,
 	TargetChatgpt,
-	TargetEcommerce,
 	TargetGemini,
 	TargetGoogle,
 	TargetGoogleAds,
 	TargetGoogleAiMode,
 	TargetGoogleLens,
-	TargetGoogleMaps,
 	TargetGoogleSearch,
-	TargetGoogleShoppingProduct,
-	TargetGoogleShoppingSearch,
-	TargetGoogleSuggest,
 	TargetGoogleTravelHotels,
-	TargetGoogleTrendsExplore,
-	TargetInstagramGraphqlProfile,
-	TargetLowesSearch,
 	TargetMobile,
 	TargetPerplexity,
 	TargetRedditPost,
@@ -105,15 +85,11 @@ var Targets = []Target{
 	TargetTiktokShopProduct,
 	TargetTiktokShopSearch,
 	TargetUniversal,
-	TargetUniversalEcommerce,
 	TargetWalmart,
 	TargetWalmartProduct,
 	TargetWalmartSearch,
 	TargetYoutubeChannel,
 	TargetYoutubeMetadata,
 	TargetYoutubeSearch,
-	TargetYoutubeSearchMax,
 	TargetYoutubeSubtitles,
-	TargetYoutubeTranscript,
-	TargetYoutubeVideo,
 }

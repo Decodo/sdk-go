@@ -171,6 +171,12 @@ func isOptional(t string) bool {
 func fetchIR() (*IR, error) {
 	root := projectRoot()
 
+	// If DECODO_LOCAL_IR is set, skip GCS and use local file
+	if os.Getenv("DECODO_LOCAL_IR") != "" {
+		fmt.Println("DECODO_LOCAL_IR set, using local IR...")
+		return loadLocalIR(root)
+	}
+
 	// Fetch from GCS first (always get latest)
 	fmt.Println("Fetching IR from GCS...")
 	listURL := "https://storage.googleapis.com/storage/v1/b/decodo-sdk-config/o?prefix=decodo-ir-v"
