@@ -11,7 +11,7 @@ import (
 
 func main() {
 	client := decodo.NewClient(decodo.Config{
-		WebScrapingAPI: &decodo.WebScrapingAPIConfig{Token: "<web_auth_token>"},
+		WebScrapingAPI: &decodo.WebScrapingAPIConfig{Token: os.Getenv("DECODO_TOKEN")},
 	})
 
 	params := decodo.NewGoogleAdsParams()
