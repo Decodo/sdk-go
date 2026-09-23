@@ -51,14 +51,14 @@ func resolveTransport(cfg *WebScrapingAPIConfig) (transport, error) {
 			baseURL:    dataAPIBaseURL,
 			authType:   authTypeBearer,
 			credential: cfg.APIKey,
-			routes:     dataAPIRoutes,
+			routes:     webScrapingAPIRoutes{scrape: dataAPIScrapePath, task: dataAPITaskPath},
 		}, nil
 	case token != "":
 		return transport{
 			baseURL:    webAPIBaseURL,
 			authType:   authTypeBasic,
 			credential: cfg.Token,
-			routes:     scraperAPIRoutes,
+			routes:     webScrapingAPIRoutes{scrape: scraperAPIScrapePath, task: scraperAPITaskPath},
 		}, nil
 	default:
 		return transport{}, &ConfigurationError{Msg: "WebScrapingAPI requires Token or APIKey."}

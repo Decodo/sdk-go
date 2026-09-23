@@ -12,9 +12,12 @@ type webScrapingAPIRoutes struct {
 	task   string
 }
 
-var scraperAPIRoutes = webScrapingAPIRoutes{scrape: "/v2/scrape", task: "/v3/task"}
-
-var dataAPIRoutes = webScrapingAPIRoutes{scrape: "/v1/scrape", task: "/v1/task"}
+const (
+	scraperAPIScrapePath = "/v2/scrape"
+	scraperAPITaskPath   = "/v3/task"
+	dataAPIScrapePath    = "/v1/scrape"
+	dataAPITaskPath      = "/v1/task"
+)
 
 // WebScrapingAPI provides methods for the Decodo web scraping API.
 type WebScrapingAPI struct {
@@ -46,7 +49,7 @@ func (api *WebScrapingAPI) validate(params ScrapeRequest) error {
 		return fmt.Errorf("marshaling params for validation: %w", err)
 	}
 
-	var v interface{}
+	var v any
 	if err := json.Unmarshal(data, &v); err != nil {
 		return fmt.Errorf("unmarshaling params for validation: %w", err)
 	}

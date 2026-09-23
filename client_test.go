@@ -73,7 +73,7 @@ func TestResolveTransport_Token(t *testing.T) {
 	if tr.authType != authTypeBasic || tr.credential != "test-token" {
 		t.Fatalf("auth = (%v, %q)", tr.authType, tr.credential)
 	}
-	if tr.routes != scraperAPIRoutes {
+	if tr.routes != (webScrapingAPIRoutes{scrape: scraperAPIScrapePath, task: scraperAPITaskPath}) {
 		t.Fatalf("routes = %+v", tr.routes)
 	}
 }
@@ -89,7 +89,7 @@ func TestResolveTransport_APIKey(t *testing.T) {
 	if tr.authType != authTypeBearer || tr.credential != "test-key" {
 		t.Fatalf("auth = (%v, %q)", tr.authType, tr.credential)
 	}
-	if tr.routes != dataAPIRoutes {
+	if tr.routes != (webScrapingAPIRoutes{scrape: dataAPIScrapePath, task: dataAPITaskPath}) {
 		t.Fatalf("routes = %+v", tr.routes)
 	}
 }
