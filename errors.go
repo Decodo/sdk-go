@@ -33,6 +33,14 @@ type ValidationError struct {
 
 func (e *ValidationError) Unwrap() error { return &e.DecodoError }
 
+// ConfigurationError is returned when the client was built with an invalid
+// configuration, for example no credential or both Token and APIKey set.
+type ConfigurationError struct {
+	Msg string
+}
+
+func (e *ConfigurationError) Error() string { return e.Msg }
+
 // TimeoutError is returned when a request times out.
 type TimeoutError struct {
 	Msg string
