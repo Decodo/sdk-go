@@ -9,14 +9,8 @@ const (
 )
 
 // WebScrapingAPIConfig contains configuration for the web scraping API.
-//
-// Exactly one of Token or APIKey must be set. The credential decides which
-// backend the client talks to: Token uses scraper-api.decodo.com with Basic
-// auth, APIKey uses data.decodo.com with Bearer auth.
 type WebScrapingAPIConfig struct {
-	// Token is the base64-encoded user:password Basic auth token.
-	Token string
-	// APIKey is the Decodo API key, sent as a Bearer token.
+	Token  string
 	APIKey string
 	// IntegrationHeader overrides the x-integration header (default: "sdk-go").
 	IntegrationHeader string
@@ -38,7 +32,6 @@ type Client struct {
 	WebScrapingAPI *WebScrapingAPI
 }
 
-// transport is the backend selected from the configured credential.
 type transport struct {
 	baseURL    string
 	authType   authType
@@ -73,9 +66,6 @@ func resolveTransport(cfg *WebScrapingAPIConfig) (transport, error) {
 }
 
 // NewClient creates a new Decodo client with the given configuration.
-//
-// Credential problems (missing, blank, or both Token and APIKey set) do not
-// fail construction; every WebScrapingAPI method returns a *ConfigurationError instead.
 func NewClient(config Config) *Client {
 	timeoutMs := config.TimeoutMs
 	if timeoutMs <= 0 {
