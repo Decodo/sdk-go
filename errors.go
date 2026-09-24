@@ -33,6 +33,12 @@ type ValidationError struct {
 
 func (e *ValidationError) Unwrap() error { return &e.DecodoError }
 
+type ConfigurationError struct {
+	Msg string
+}
+
+func (e *ConfigurationError) Error() string { return e.Msg }
+
 // TimeoutError is returned when a request times out.
 type TimeoutError struct {
 	Msg string

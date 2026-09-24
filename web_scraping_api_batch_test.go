@@ -17,11 +17,11 @@ func newTestWebScrapingAPI(t *testing.T, srv *httptest.Server) *WebScrapingAPI {
 	cfg := httpClientConfig{
 		baseURL:           srv.URL,
 		authType:          authTypeBasic,
-		authToken:         "test-token",
+		credential:        "test-token",
 		timeoutMs:         5_000,
 		integrationHeader: "sdk-go-test",
 	}
-	return newWebScrapingAPI(newHTTPClient(cfg), nil)
+	return newWebScrapingAPI(newHTTPClient(cfg), nil, webScrapingAPIRoutes{scrape: scraperAPIScrapePath, task: scraperAPITaskPath})
 }
 
 func writeJSON(w http.ResponseWriter, v any) {
@@ -115,11 +115,11 @@ func TestScrapeBatch_SkipsSchemaValidation(t *testing.T) {
 	cfg := httpClientConfig{
 		baseURL:           srv.URL,
 		authType:          authTypeBasic,
-		authToken:         "test-token",
+		credential:        "test-token",
 		timeoutMs:         5_000,
 		integrationHeader: "sdk-go-test",
 	}
-	api := newWebScrapingAPI(newHTTPClient(cfg), rejectAll)
+	api := newWebScrapingAPI(newHTTPClient(cfg), rejectAll, webScrapingAPIRoutes{scrape: scraperAPIScrapePath, task: scraperAPITaskPath})
 
 	params := NewGoogleSearchBatchParams()
 	params.Query = []string{"coffee", "tea"}

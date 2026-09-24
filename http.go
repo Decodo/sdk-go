@@ -16,12 +16,13 @@ type authType int
 
 const (
 	authTypeBasic authType = iota
+	authTypeBearer
 )
 
 type httpClientConfig struct {
 	baseURL           string
 	authType          authType
-	authToken         string
+	credential        string
 	timeoutMs         int
 	integrationHeader string
 }
@@ -68,8 +69,11 @@ func (c *httpClient) request(ctx context.Context, method, path string, body inte
 		return nil, fmt.Errorf("creating request: %w", err)
 	}
 
-	if c.config.authType == authTypeBasic {
-		req.Header.Set("Authorization", "Basic "+c.config.authToken)
+	switch c.config.authType {
+	case authTypeBasic:
+		req.Header.Set("Authorization", "Basic "+c.config.credential)
+	case authTypeBearer:
+		req.Header.Set("Authorization", "Bearer "+c.config.credential)
 	}
 	req.Header.Set("Content-Type", "application/json")
 	req.Header.Set("Accept", "application/json")

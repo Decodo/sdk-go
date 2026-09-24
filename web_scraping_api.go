@@ -7,17 +7,35 @@ import (
 	"net/url"
 )
 
-// WebScrapingAPI provides methods for the Decodo web scraping API.
-type WebScrapingAPI struct {
-	http   *httpClient
-	schema Schema
+type webScrapingAPIRoutes struct {
+	scrape string
+	task   string
 }
 
-func newWebScrapingAPI(http *httpClient, schema Schema) *WebScrapingAPI {
+const (
+	scraperAPIScrapePath = "/v2/scrape"
+	scraperAPITaskPath   = "/v3/task"
+	dataAPIScrapePath    = "/v1/scrape"
+	dataAPITaskPath      = "/v1/task"
+)
+
+// WebScrapingAPI provides methods for the Decodo web scraping API.
+type WebScrapingAPI struct {
+	http      *httpClient
+	schema    Schema
+	routes    webScrapingAPIRoutes
+	configErr error
+}
+
+func newWebScrapingAPI(http *httpClient, schema Schema, routes webScrapingAPIRoutes) *WebScrapingAPI {
 	if schema == nil {
 		schema = SharedDefaultSchema
 	}
-	return &WebScrapingAPI{http: http, schema: schema}
+	return &WebScrapingAPI{http: http, schema: schema, routes: routes}
+}
+
+func newMisconfiguredWebScrapingAPI(err error) *WebScrapingAPI {
+	return &WebScrapingAPI{configErr: err}
 }
 
 func (api *WebScrapingAPI) validate(params ScrapeRequest) error {
@@ -31,7 +49,7 @@ func (api *WebScrapingAPI) validate(params ScrapeRequest) error {
 		return fmt.Errorf("marshaling params for validation: %w", err)
 	}
 
-	var v interface{}
+	var v any
 	if err := json.Unmarshal(data, &v); err != nil {
 		return fmt.Errorf("unmarshaling params for validation: %w", err)
 	}
@@ -49,10 +67,13 @@ func (api *WebScrapingAPI) validate(params ScrapeRequest) error {
 
 // Scrape performs a synchronous scrape request.
 func (api *WebScrapingAPI) Scrape(ctx context.Context, params ScrapeRequest) (*SyncResponse, error) {
+	if api.configErr != nil {
+		return nil, api.configErr
+	}
 	if err := api.validate(params); err != nil {
 		return nil, err
 	}
-	body, err := api.http.post(ctx, "/v2/scrape", params)
+	body, err := api.http.post(ctx, api.routes.scrape, params)
 	if err != nil {
 		return nil, err
 	}
@@ -68,10 +89,13 @@ func (api *WebScrapingAPI) Scrape(ctx context.Context, params ScrapeRequest) (*S
 
 // ScrapeAsync creates an async scrape task.
 func (api *WebScrapingAPI) ScrapeAsync(ctx context.Context, params ScrapeRequest) (*AsyncTaskResponse, error) {
+	if api.configErr != nil {
+		return nil, api.configErr
+	}
 	if err := api.validate(params); err != nil {
 		return nil, err
 	}
-	body, err := api.http.post(ctx, "/v3/task", params)
+	body, err := api.http.post(ctx, api.routes.task, params)
 	if err != nil {
 		return nil, err
 	}
@@ -89,7 +113,10 @@ func (api *WebScrapingAPI) ScrapeAsync(ctx context.Context, params ScrapeRequest
 // Validation is skipped because batch params use []string for url/query fields
 // which differ from the single-value schema used for sync/async requests.
 func (api *WebScrapingAPI) ScrapeBatch(ctx context.Context, params ScrapeRequest) (*BatchResponse, error) {
-	body, err := api.http.post(ctx, "/v3/task/batch", params)
+	if api.configErr != nil {
+		return nil, api.configErr
+	}
+	body, err := api.http.post(ctx, api.routes.task+"/batch", params)
 	if err != nil {
 		return nil, err
 	}
@@ -105,7 +132,10 @@ func (api *WebScrapingAPI) ScrapeBatch(ctx context.Context, params ScrapeRequest
 
 // GetStatus retrieves the status of an async task.
 func (api *WebScrapingAPI) GetStatus(ctx context.Context, taskID string) (*TaskMetadata, error) {
-	body, err := api.http.get(ctx, "/v3/task/"+url.PathEscape(taskID), nil)
+	if api.configErr != nil {
+		return nil, api.configErr
+	}
+	body, err := api.http.get(ctx, api.routes.task+"/"+url.PathEscape(taskID), nil)
 	if err != nil {
 		return nil, err
 	}
@@ -121,7 +151,10 @@ func (api *WebScrapingAPI) GetStatus(ctx context.Context, taskID string) (*TaskM
 
 // GetResults retrieves the results of a completed async task. Returns nil if not yet available.
 func (api *WebScrapingAPI) GetResults(ctx context.Context, taskID string) (*TaskResultsResponse, error) {
-	body, err := api.http.get(ctx, "/v3/task/"+url.PathEscape(taskID)+"/results", nil)
+	if api.configErr != nil {
+		return nil, api.configErr
+	}
+	body, err := api.http.get(ctx, api.routes.task+"/"+url.PathEscape(taskID)+"/results", nil)
 	if err != nil {
 		return nil, err
 	}
