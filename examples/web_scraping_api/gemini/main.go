@@ -11,7 +11,7 @@ import (
 
 func main() {
 	client := decodo.NewClient(decodo.Config{
-		WebScrapingAPI: &decodo.WebScrapingAPIConfig{Token: os.Getenv("DECODO_TOKEN")},
+		WebScrapingAPI: &decodo.WebScrapingAPIConfig{APIKey: os.Getenv("DECODO_API_KEY")},
 	})
 
 	params := decodo.NewGeminiParams()

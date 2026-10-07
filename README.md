@@ -57,12 +57,12 @@ go get github.com/decodo/sdk-go
 touch main.go
 ```
 
-Get your Web Scraping API token from the [Decodo dashboard](https://dashboard.decodo.com/welcome). The token is the base64-encoded `user:password` value from the Basic Auth credentials shown in the dashboard.
+Get your Web Data API key from the [Decodo dashboard](https://dashboard.decodo.com/web-data/playground). Older plans only have a basic auth token, the base64-encoded `user:password` value from the Basic Auth credentials shown in the dashboard. Pass it as `Token` instead of `APIKey`.
 
-Keep the token out of your source by exporting it:
+Keep the key out of your source by exporting it:
 
 ```sh
-export DECODO_TOKEN=your_token
+export DECODO_API_KEY=your_api_key
 ```
 
 Every target has a constructor that returns its parameter struct. Create the one you need, set its fields, and pass it to `Scrape`:
@@ -83,7 +83,7 @@ import (
 func main() {
 	client := decodo.NewClient(decodo.Config{
 		WebScrapingAPI: &decodo.WebScrapingAPIConfig{
-			Token: os.Getenv("DECODO_TOKEN"),
+			APIKey: os.Getenv("DECODO_API_KEY"),
 		},
 	})
 
@@ -207,7 +207,7 @@ params.PageFrom = decodo.Ptr(1)
 ```go
 client := decodo.NewClient(decodo.Config{
 	WebScrapingAPI: &decodo.WebScrapingAPIConfig{
-		Token:             "<basic_auth_token>",
+		APIKey:            "<api_key>",
 		IntegrationHeader: "my-app",
 	},
 	TimeoutMs: 120_000, // optional, request timeout in ms (default: 180000)
@@ -216,7 +216,8 @@ client := decodo.NewClient(decodo.Config{
 
 | Parameter | Description |
 | --- | --- |
-| `WebScrapingAPI.Token` | Web Scraping API basic auth token, the base64-encoded `user:password` string from the Decodo dashboard. Required |
+| `WebScrapingAPI.APIKey` | Web Data API key from the Decodo dashboard. Set either `APIKey` or `Token`, not both. Required |
+| `WebScrapingAPI.Token` | Basic auth token for older plans, the base64-encoded `user:password` string from the Decodo dashboard. Used when `APIKey` is not set |
 | `WebScrapingAPI.IntegrationHeader` | Identifies the calling integration in requests (default: `sdk-go`) |
 | `TimeoutMs` | Request timeout in milliseconds (default: 180000) |
 | `Schema` | Target schema used for request validation (default: loaded automatically). See [Schema validation](#schema-validation) |
@@ -254,7 +255,7 @@ import (
 func main() {
 	client := decodo.NewClient(decodo.Config{
 		WebScrapingAPI: &decodo.WebScrapingAPIConfig{
-			Token: os.Getenv("DECODO_TOKEN"),
+			APIKey: os.Getenv("DECODO_API_KEY"),
 		},
 	})
 
@@ -296,7 +297,7 @@ func main() {
 
 	client := decodo.NewClient(decodo.Config{
 		WebScrapingAPI: &decodo.WebScrapingAPIConfig{
-			Token: os.Getenv("DECODO_TOKEN"),
+			APIKey: os.Getenv("DECODO_API_KEY"),
 		},
 	})
 
@@ -363,7 +364,7 @@ func main() {
 
 	client := decodo.NewClient(decodo.Config{
 		WebScrapingAPI: &decodo.WebScrapingAPIConfig{
-			Token: os.Getenv("DECODO_TOKEN"),
+			APIKey: os.Getenv("DECODO_API_KEY"),
 		},
 	})
 
@@ -526,7 +527,7 @@ if err != nil {
 }
 
 client := decodo.NewClient(decodo.Config{
-	WebScrapingAPI: &decodo.WebScrapingAPIConfig{Token: token},
+	WebScrapingAPI: &decodo.WebScrapingAPIConfig{APIKey: os.Getenv("DECODO_API_KEY")},
 	Schema:         schema,
 })
 ```
@@ -541,7 +542,7 @@ if err != nil {
 	switch e := err.(type) {
 	case *decodo.AuthenticationError:
 		// Handle authentication failures.
-		log.Fatalf("Invalid token (HTTP %d). Check the Basic authentication token in your dashboard.", e.StatusCode)
+		log.Fatalf("Invalid API key or token (HTTP %d). Check your credentials in the dashboard.", e.StatusCode)
 	case *decodo.RateLimitError:
 		// Retry once after a short delay.
 		time.Sleep(5 * time.Second)
@@ -597,7 +598,7 @@ Raw URL targets use a `_url` suffix, so `google` is [`google_url/`](./examples/w
 Run any of them with:
 
 ```bash
-export DECODO_TOKEN=your_token
+export DECODO_API_KEY=your_api_key
 go run ./examples/web_scraping_api/google_search
 ```
 
