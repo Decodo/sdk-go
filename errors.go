@@ -1,5 +1,7 @@
 package decodo
 
+import "fmt"
+
 // DecodoError is the base error type for all Decodo API errors.
 type DecodoError struct {
 	StatusCode int
@@ -46,6 +48,45 @@ type TimeoutError struct {
 
 func (e *TimeoutError) Error() string {
 	return e.Msg
+}
+
+// CrawlError is returned by Crawl when the crawl ends faulted or cancelled.
+type CrawlError struct {
+	CrawlID string
+	Status  string
+	// Reason is set when the API says why the crawl stopped, for example no_pages_found.
+	Reason string
+}
+
+func (e *CrawlError) Error() string {
+	if e.Reason != "" {
+		return fmt.Sprintf("crawl %s ended with status %s (%s)", e.CrawlID, e.Status, e.Reason)
+	}
+	return fmt.Sprintf("crawl %s ended with status %s", e.CrawlID, e.Status)
+}
+
+// CrawlRequestError is returned by Crawl when a request fails after the crawl was
+// started, for example a 5xx while polling. The crawl keeps running on the server.
+// It unwraps to the underlying error, so errors.As still matches the typed API errors.
+type CrawlRequestError struct {
+	CrawlID string
+	Err     error
+}
+
+func (e *CrawlRequestError) Error() string {
+	return fmt.Sprintf("crawl %s is still running, call CancelCrawl to stop it: %v", e.CrawlID, e.Err)
+}
+
+func (e *CrawlRequestError) Unwrap() error { return e.Err }
+
+// CrawlTimeoutError is returned by Crawl when its context deadline passes. The crawl
+// keeps running on the server.
+type CrawlTimeoutError struct {
+	CrawlID string
+}
+
+func (e *CrawlTimeoutError) Error() string {
+	return fmt.Sprintf("crawl %s did not finish before the context deadline; it is still running, call CancelCrawl to stop it or GetCrawlResults to collect it later", e.CrawlID)
 }
 
 // CancellationError is returned when the caller's context is cancelled.

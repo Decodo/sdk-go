@@ -414,6 +414,66 @@ Two details worth knowing:
 - **Batch requests are limited to one per second**. How many inputs a single batch can carry depends on your plan's rate limit.
 - **Batch requests skip schema validation**. The target schema describes single values, so arrays wouldn't pass it. Parameters are still typed at compile time, but a bad value only surfaces as an API error.
 
+## Search, map and crawl
+
+These calls use the Data API and need an API key. With a Basic `Token` they return a `*decodo.ConfigurationError` without sending a request.
+
+### Search
+
+Runs a web search and returns the results page:
+
+```go
+res, err := client.WebScrapingAPI.Search(ctx, decodo.RunSearchRequest{
+	Query: "laptop reviews",
+	Geo:   decodo.Ptr("United States"),
+})
+```
+
+### Map
+
+Discovers the links on a site:
+
+```go
+res, err := client.WebScrapingAPI.Map(ctx, decodo.MapSiteRequest{
+	URL:   "https://example.com",
+	Limit: decodo.Ptr(100),
+})
+
+links := res.Results[0].Content.Links
+```
+
+### Crawl
+
+`Crawl` starts a crawl, polls its status and returns every page once the server settles it. The wait is bounded by `ctx`:
+
+```go
+ctx, cancel := context.WithTimeout(context.Background(), 10*time.Minute)
+defer cancel()
+
+pages, err := client.WebScrapingAPI.Crawl(ctx, decodo.StartCrawlRequest{
+	URL:    "https://example.com",
+	Limit:  decodo.Ptr(50),
+	Output: decodo.Ptr("markdown"),
+}, decodo.WithPollInterval(5*time.Second))
+```
+
+The poll interval defaults to 5 seconds. A crawl that ends `faulted` or `cancelled` returns a `*decodo.CrawlError` with its `CrawlID`, `Status` and `Reason`. A `truncated` crawl returns the pages it collected. If `ctx` expires first, `Crawl` returns a `*decodo.CrawlTimeoutError` carrying the `CrawlID`, and the crawl keeps running on the server. Any other failure after the crawl started comes back as a `*decodo.CrawlRequestError` with the `CrawlID`, so you can still cancel it.
+
+To drive a crawl step by step, start it and call the status, results and cancel methods yourself:
+
+```go
+job, err := client.WebScrapingAPI.StartCrawl(ctx, decodo.StartCrawlRequest{URL: "https://example.com"})
+
+progress, err := client.WebScrapingAPI.GetCrawlStatus(ctx, job.CrawlID)
+fmt.Println(progress.Status) // pending, done, faulted, cancelled or truncated
+
+pages, err := client.WebScrapingAPI.GetCrawlResults(ctx, job.CrawlID)
+
+_, err = client.WebScrapingAPI.CancelCrawl(ctx, job.CrawlID)
+```
+
+`GetCrawlResults` follows the API's pagination and returns every page. Pass `decodo.WithMetadataOnly()` to leave out page content, which needs fewer requests.
+
 ## Targets and parameter constructors
 
 Every target has a matching constructor. The constructor name is the target name in Pascal case, prefixed with `New` and suffixed with `Params`:
@@ -575,6 +635,10 @@ if err != nil {
 | `ValidationError` | The API returns `422`, or `400` with validation errors | `Errors`, plus the `DecodoError` fields |
 | `TimeoutError` | The request exceeds `TimeoutMs` | `Msg` |
 | `CancellationError` | The caller's context is cancelled | `Msg` |
+| `ConfigurationError` | The credentials are invalid, or `Search`, `Map` or a crawl method is called with a Basic `Token` | `Msg` |
+| `CrawlError` | `Crawl` ends with a `faulted` or `cancelled` crawl | `CrawlID`, `Status`, `Reason` |
+| `CrawlRequestError` | A request fails after `Crawl` started the crawl, such as a `5xx` while polling. Unwraps to the underlying error | `CrawlID`, `Err` |
+| `CrawlTimeoutError` | The context deadline passes while `Crawl` is waiting | `CrawlID` |
 | `DecodoError` | Any other unsuccessful response. Embedded by the three HTTP errors above | `StatusCode`, `APIStatus`, `Message` |
 
 Three things to keep in mind:
@@ -591,6 +655,9 @@ Three things to keep in mind:
 - [`universal/`](./examples/web_scraping_api/universal/) for the universal scraper
 - [`async/google_search_async/`](./examples/web_scraping_api/async/google_search_async/) for a task with polling
 - [`batch/google_search_batch/`](./examples/web_scraping_api/batch/google_search_batch/) for a batch task with polling
+
+- [`search/`](./examples/web_scraping_api/search/) and [`map/`](./examples/web_scraping_api/map/) for search and map
+- [`crawl/crawl/`](./examples/web_scraping_api/crawl/crawl/) for a crawl that waits for the result, and [`crawl/crawl_step_by_step/`](./examples/web_scraping_api/crawl/crawl_step_by_step/) for one driven by hand
 
 Raw URL targets use a `_url` suffix, so `google` is [`google_url/`](./examples/web_scraping_api/google_url/) and `amazon` is [`amazon_url/`](./examples/web_scraping_api/amazon_url/). A few directories are named after the site rather than the target, such as [`mobile_de/`](./examples/web_scraping_api/mobile_de/) for `mobile`.
 
@@ -616,6 +683,7 @@ This writes:
 - `targets.go` – the `Target` enum and all target constants
 - `generated_params.go` – typed parameter structs for each target
 - `generated_parameters.go` – parameter metadata
+- `generated_data_api.go` – request and response types and routes for search, map and crawl
 
 The generator always looks for the latest `decodo-ir-v*.json` in the public `decodo-sdk-config` bucket on Google Cloud Storage, then caches it to `inputs/decodo.ir.json`, which is gitignored. If the fetch fails it falls back to that cache, or to `/tmp/decodo.ir.json`. Re-run it to pick up new targets or changed parameters.
 
