@@ -89,7 +89,7 @@ func TestResolveTransport_APIKey(t *testing.T) {
 	if tr.authType != authTypeBearer || tr.credential != "test-key" {
 		t.Fatalf("auth = (%v, %q)", tr.authType, tr.credential)
 	}
-	if tr.routes != (webScrapingAPIRoutes{scrape: dataAPIScrapePath, task: dataAPITaskPath}) {
+	if tr.routes != (webScrapingAPIRoutes{scrape: dataAPIScrapePath, task: dataAPITaskPath, dataAPI: true}) {
 		t.Fatalf("routes = %+v", tr.routes)
 	}
 }

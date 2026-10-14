@@ -21,6 +21,7 @@ type IR struct {
 
 type IRAPIs struct {
 	WebScrapingAPI WebScrapingAPIIR `json:"webScrapingApi"`
+	DataAPI        DataAPIIR        `json:"dataApi"`
 }
 
 type WebScrapingAPIIR struct {
@@ -601,6 +602,11 @@ func main() {
 
 	if err := generateParametersFile(ir, outDir); err != nil {
 		fmt.Fprintf(os.Stderr, "Error generating parameters: %v\n", err)
+		os.Exit(1)
+	}
+
+	if err := generateDataAPIFile(ir, outDir); err != nil {
+		fmt.Fprintf(os.Stderr, "Error generating data API types: %v\n", err)
 		os.Exit(1)
 	}
 

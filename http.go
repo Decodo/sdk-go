@@ -46,6 +46,7 @@ func newHTTPClient(config httpClientConfig) *httpClient {
 type errorResponse struct {
 	Status  string        `json:"status"`
 	Message string        `json:"message"`
+	Error   string        `json:"error"`
 	Errors  []interface{} `json:"errors"`
 }
 
@@ -108,6 +109,9 @@ func (c *httpClient) request(ctx context.Context, method, path string, body inte
 	_ = json.Unmarshal(respBody, &errResp)
 
 	message := errResp.Message
+	if message == "" {
+		message = errResp.Error
+	}
 	if message == "" {
 		message = fmt.Sprintf("HTTP %d", resp.StatusCode)
 	}

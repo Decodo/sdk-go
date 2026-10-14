@@ -51,7 +51,7 @@ func resolveTransport(cfg *WebScrapingAPIConfig) (transport, error) {
 			baseURL:    dataAPIBaseURL,
 			authType:   authTypeBearer,
 			credential: cfg.APIKey,
-			routes:     webScrapingAPIRoutes{scrape: dataAPIScrapePath, task: dataAPITaskPath},
+			routes:     webScrapingAPIRoutes{scrape: dataAPIScrapePath, task: dataAPITaskPath, dataAPI: true},
 		}, nil
 	case token != "":
 		return transport{

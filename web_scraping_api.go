@@ -8,8 +8,9 @@ import (
 )
 
 type webScrapingAPIRoutes struct {
-	scrape string
-	task   string
+	scrape  string
+	task    string
+	dataAPI bool
 }
 
 const (
