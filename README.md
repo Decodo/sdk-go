@@ -655,7 +655,6 @@ Three things to keep in mind:
 - [`universal/`](./examples/web_scraping_api/universal/) for the universal scraper
 - [`async/google_search_async/`](./examples/web_scraping_api/async/google_search_async/) for a task with polling
 - [`batch/google_search_batch/`](./examples/web_scraping_api/batch/google_search_batch/) for a batch task with polling
-
 - [`search/`](./examples/web_scraping_api/search/) and [`map/`](./examples/web_scraping_api/map/) for search and map
 - [`crawl/crawl/`](./examples/web_scraping_api/crawl/crawl/) for a crawl that waits for the result, and [`crawl/crawl_step_by_step/`](./examples/web_scraping_api/crawl/crawl_step_by_step/) for one driven by hand
 
@@ -666,6 +665,13 @@ Run any of them with:
 ```bash
 export DECODO_TOKEN=your_token
 go run ./examples/web_scraping_api/google_search
+```
+
+The search, map and crawl examples need an API key instead:
+
+```bash
+export DECODO_API_KEY=your_api_key
+go run ./examples/web_scraping_api/search
 ```
 
 ## Code generation
