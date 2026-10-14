@@ -261,7 +261,7 @@ func TestCrawl_DeadlineReturnsTimeoutErrorWithCrawlID(t *testing.T) {
 	}
 }
 
-func TestCrawl_ContextCancelReturnsCancellationError(t *testing.T) {
+func TestCrawl_ContextCancelReturnsCancellationErrorWithCrawlID(t *testing.T) {
 	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		_, _ = io.Copy(io.Discard, r.Body)
 		writeJSON(w, crawlStatusBody("pending"))
@@ -276,9 +276,13 @@ func TestCrawl_ContextCancelReturnsCancellationError(t *testing.T) {
 
 	_, err := newDataAPITestAPI(srv).Crawl(ctx, StartCrawlRequest{URL: "https://a.test"}, WithPollInterval(10*time.Millisecond))
 
+	var crawlCancelErr *CrawlCancellationError
+	if !errors.As(err, &crawlCancelErr) || crawlCancelErr.CrawlID != "c1" {
+		t.Fatalf("error = %v, want CrawlCancellationError for c1", err)
+	}
 	var cancelErr *CancellationError
-	if !errors.As(err, &cancelErr) || !strings.Contains(cancelErr.Msg, "c1") {
-		t.Fatalf("error = %v, want CancellationError naming c1", err)
+	if !errors.As(err, &cancelErr) {
+		t.Fatalf("error = %v, want it to unwrap to CancellationError", err)
 	}
 }
 
@@ -310,8 +314,54 @@ func TestCrawl_FailedPollKeepsCrawlID(t *testing.T) {
 
 	var reqErr *CrawlRequestError
 	var authErr *AuthenticationError
-	if !errors.As(err, &reqErr) || reqErr.CrawlID != "c1" || !errors.As(err, &authErr) {
-		t.Fatalf("error = %v, want CrawlRequestError for c1 wrapping AuthenticationError", err)
+	if !errors.As(err, &reqErr) || reqErr.CrawlID != "c1" || reqErr.Finished || !errors.As(err, &authErr) {
+		t.Fatalf("error = %v, want unfinished CrawlRequestError for c1 wrapping AuthenticationError", err)
+	}
+}
+
+func TestCrawl_FailedResultsReadMarksCrawlFinished(t *testing.T) {
+	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		switch {
+		case r.Method == "POST":
+			writeJSON(w, crawlStatusBody("pending"))
+		case strings.HasSuffix(r.URL.Path, "/status"):
+			writeJSON(w, crawlStatusBody("done"))
+		default:
+			w.WriteHeader(http.StatusInternalServerError)
+			writeJSON(w, map[string]any{"message": "boom"})
+		}
+	}))
+	defer srv.Close()
+
+	_, err := newDataAPITestAPI(srv).Crawl(context.Background(), StartCrawlRequest{URL: "https://a.test"}, WithPollInterval(time.Millisecond))
+
+	var reqErr *CrawlRequestError
+	if !errors.As(err, &reqErr) || !reqErr.Finished || !strings.Contains(err.Error(), "GetCrawlResults") || strings.Contains(err.Error(), "still running") {
+		t.Fatalf("error = %v, want finished CrawlRequestError pointing at GetCrawlResults", err)
+	}
+}
+
+func TestCrawl_CancelWhileReadingResultsMarksCrawlFinished(t *testing.T) {
+	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
+	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		switch {
+		case r.Method == "POST":
+			writeJSON(w, crawlStatusBody("pending"))
+		case strings.HasSuffix(r.URL.Path, "/status"):
+			writeJSON(w, crawlStatusBody("done"))
+		default:
+			cancel()
+			<-r.Context().Done()
+		}
+	}))
+	defer srv.Close()
+
+	_, err := newDataAPITestAPI(srv).Crawl(ctx, StartCrawlRequest{URL: "https://a.test"}, WithPollInterval(time.Millisecond))
+
+	var cancelErr *CrawlCancellationError
+	if !errors.As(err, &cancelErr) || !cancelErr.Finished || strings.Contains(err.Error(), "still running") {
+		t.Fatalf("error = %v, want finished CrawlCancellationError", err)
 	}
 }
 

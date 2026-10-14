@@ -212,7 +212,7 @@ func (api *WebScrapingAPI) CancelCrawl(ctx context.Context, crawlID string) (*Ca
 // with its content. Requires an API key.
 //
 // The wait is bounded by ctx. When ctx expires, Crawl returns a *CrawlTimeoutError
-// (or *CancellationError if ctx was cancelled) and the crawl keeps running on the
+// (or *CrawlCancellationError if ctx was cancelled) and the crawl keeps running on the
 // server; stop it with CancelCrawl. A crawl that ends faulted or cancelled returns
 // a *CrawlError. A truncated crawl returns the pages it collected. Any other error
 // after the crawl started is wrapped in a *CrawlRequestError so the crawl ID is not lost.
@@ -236,7 +236,7 @@ func (api *WebScrapingAPI) Crawl(ctx context.Context, params StartCrawlRequest, 
 	for {
 		status, err := api.GetCrawlStatus(ctx, job.CrawlID)
 		if err != nil {
-			return nil, crawlContextError(ctx, job.CrawlID, err)
+			return nil, crawlContextError(ctx, job.CrawlID, false, err)
 		}
 
 		switch status.Status {
@@ -245,14 +245,14 @@ func (api *WebScrapingAPI) Crawl(ctx context.Context, params StartCrawlRequest, 
 		case CrawlStatusDone, CrawlStatusTruncated:
 			pages, err := api.GetCrawlResults(ctx, job.CrawlID, opts...)
 			if err != nil {
-				return nil, crawlContextError(ctx, job.CrawlID, err)
+				return nil, crawlContextError(ctx, job.CrawlID, true, err)
 			}
 			return pages, nil
 		}
 
 		select {
 		case <-ctx.Done():
-			return nil, crawlContextError(ctx, job.CrawlID, ctx.Err())
+			return nil, crawlContextError(ctx, job.CrawlID, false, ctx.Err())
 		case <-time.After(o.pollInterval):
 		}
 	}
@@ -260,12 +260,13 @@ func (api *WebScrapingAPI) Crawl(ctx context.Context, params StartCrawlRequest, 
 
 // crawlContextError attaches the crawl ID to every error that occurs once the crawl
 // exists, so the caller can still cancel or collect a crawl that outlived the wait.
-func crawlContextError(ctx context.Context, crawlID string, err error) error {
+// finished means the crawl is already done and only reading its results failed.
+func crawlContextError(ctx context.Context, crawlID string, finished bool, err error) error {
 	switch ctx.Err() {
 	case context.DeadlineExceeded:
-		return &CrawlTimeoutError{CrawlID: crawlID}
+		return &CrawlTimeoutError{CrawlID: crawlID, Finished: finished}
 	case context.Canceled:
-		return &CancellationError{Msg: fmt.Sprintf("crawl %s was cancelled while waiting; it is still running, call CancelCrawl to stop it", crawlID)}
+		return &CrawlCancellationError{CrawlID: crawlID, Finished: finished}
 	}
-	return &CrawlRequestError{CrawlID: crawlID, Err: err}
+	return &CrawlRequestError{CrawlID: crawlID, Finished: finished, Err: err}
 }
