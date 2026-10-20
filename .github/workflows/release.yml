@@ -1,0 +1,67 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.21'
+          cache: true
+
+      - name: Download dependencies
+        run: go mod download
+
+      - name: Vet
+        run: go vet ./...
+
+      - name: golangci-lint
+        uses: golangci/golangci-lint-action@v6
+        with:
+          version: latest
+          args: --timeout=5m
+
+      - name: Test
+        run: go test ./...
+
+      - name: Build SDK
+        run: go build ./...
+
+      - name: Build examples
+        run: |
+          for dir in examples/web_scraping_api/*/; do
+            [ -f "${dir}main.go" ] && go build "./${dir}"
+          done
+          for dir in examples/web_scraping_api/*/*/; do
+            [ -f "${dir}main.go" ] && go build "./${dir}"
+          done
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx -p semantic-release@25 -p conventional-changelog-conventionalcommits@9 semantic-release
