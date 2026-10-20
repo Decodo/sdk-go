@@ -713,6 +713,15 @@ This writes:
 
 The generator always looks for the latest `decodo-ir-v*.json` in the public `decodo-sdk-config` bucket on Google Cloud Storage, then caches it to `inputs/decodo.ir.json`, which is gitignored. If the fetch fails it falls back to that cache, or to `/tmp/decodo.ir.json`. Re-run it to pick up new targets or changed parameters.
 
+CI runs the generator on every pull request and fails if the committed files differ from its output. Run the command above and commit the result to fix it.
+
+## Releases
+
+Releases are automated. Merging to `main` tags a new version based on the
+PR title, which must follow [Conventional Commits](https://www.conventionalcommits.org):
+`fix:` → patch, `feat:` → minor, `feat!:` or a `BREAKING CHANGE:` footer → major.
+`chore:`, `docs:`, `ci:`, `refactor:`, `test:` don't release. Don't push version tags by hand.
+
 ## Related repositories
 
 - [Decodo Python SDK](https://github.com/Decodo/sdk-python)
