@@ -523,58 +523,6 @@ func NewPerplexityParams() *PerplexityParams {
 	return &PerplexityParams{Target: TargetPerplexity}
 }
 
-// RedditPostParams contains parameters for the reddit_post target.
-type RedditPostParams struct {
-	Target Target `json:"target"`
-	CallbackURL *string `json:"callback_url,omitempty"`
-	Geo *string `json:"geo,omitempty"`
-	Locale *string `json:"locale,omitempty"`
-	URL *string `json:"url,omitempty"`
-}
-
-// GetTarget implements ScrapeRequest.
-func (p *RedditPostParams) GetTarget() string { return string(p.Target) }
-
-// NewRedditPostParams creates a new RedditPostParams with the target pre-set.
-func NewRedditPostParams() *RedditPostParams {
-	return &RedditPostParams{Target: TargetRedditPost}
-}
-
-// RedditSubredditParams contains parameters for the reddit_subreddit target.
-type RedditSubredditParams struct {
-	Target Target `json:"target"`
-	CallbackURL *string `json:"callback_url,omitempty"`
-	Geo *string `json:"geo,omitempty"`
-	Locale *string `json:"locale,omitempty"`
-	URL *string `json:"url,omitempty"`
-}
-
-// GetTarget implements ScrapeRequest.
-func (p *RedditSubredditParams) GetTarget() string { return string(p.Target) }
-
-// NewRedditSubredditParams creates a new RedditSubredditParams with the target pre-set.
-func NewRedditSubredditParams() *RedditSubredditParams {
-	return &RedditSubredditParams{Target: TargetRedditSubreddit}
-}
-
-// RedditUserParams contains parameters for the reddit_user target.
-type RedditUserParams struct {
-	Target Target `json:"target"`
-	CallbackURL *string `json:"callback_url,omitempty"`
-	Geo *string `json:"geo,omitempty"`
-	Locale *string `json:"locale,omitempty"`
-	Sort *string `json:"sort,omitempty"`
-	URL *string `json:"url,omitempty"`
-}
-
-// GetTarget implements ScrapeRequest.
-func (p *RedditUserParams) GetTarget() string { return string(p.Target) }
-
-// NewRedditUserParams creates a new RedditUserParams with the target pre-set.
-func NewRedditUserParams() *RedditUserParams {
-	return &RedditUserParams{Target: TargetRedditUser}
-}
-
 // TargetParams contains parameters for the target target.
 type TargetParams struct {
 	Target Target `json:"target"`
@@ -733,6 +681,7 @@ type UniversalParams struct {
 	Headless *string `json:"headless,omitempty"`
 	HTTPMethod *string `json:"http_method,omitempty"`
 	Locale *string `json:"locale,omitempty"`
+	MainContent *bool `json:"main_content,omitempty"`
 	Markdown *bool `json:"markdown,omitempty"`
 	Payload *string `json:"payload,omitempty"`
 	// ProxyPool valid values: standard, premium
@@ -1420,58 +1369,6 @@ func NewPerplexityBatchParams() *PerplexityBatchParams {
 	return &PerplexityBatchParams{Target: TargetPerplexity}
 }
 
-// RedditPostBatchParams contains parameters for the reddit_post target (batch mode).
-type RedditPostBatchParams struct {
-	Target Target `json:"target"`
-	CallbackURL *string `json:"callback_url,omitempty"`
-	Geo *string `json:"geo,omitempty"`
-	Locale *string `json:"locale,omitempty"`
-	URL []string `json:"url,omitempty"`
-}
-
-// GetTarget implements ScrapeRequest.
-func (p *RedditPostBatchParams) GetTarget() string { return string(p.Target) }
-
-// NewRedditPostBatchParams creates a new RedditPostBatchParams with the target pre-set.
-func NewRedditPostBatchParams() *RedditPostBatchParams {
-	return &RedditPostBatchParams{Target: TargetRedditPost}
-}
-
-// RedditSubredditBatchParams contains parameters for the reddit_subreddit target (batch mode).
-type RedditSubredditBatchParams struct {
-	Target Target `json:"target"`
-	CallbackURL *string `json:"callback_url,omitempty"`
-	Geo *string `json:"geo,omitempty"`
-	Locale *string `json:"locale,omitempty"`
-	URL []string `json:"url,omitempty"`
-}
-
-// GetTarget implements ScrapeRequest.
-func (p *RedditSubredditBatchParams) GetTarget() string { return string(p.Target) }
-
-// NewRedditSubredditBatchParams creates a new RedditSubredditBatchParams with the target pre-set.
-func NewRedditSubredditBatchParams() *RedditSubredditBatchParams {
-	return &RedditSubredditBatchParams{Target: TargetRedditSubreddit}
-}
-
-// RedditUserBatchParams contains parameters for the reddit_user target (batch mode).
-type RedditUserBatchParams struct {
-	Target Target `json:"target"`
-	CallbackURL *string `json:"callback_url,omitempty"`
-	Geo *string `json:"geo,omitempty"`
-	Locale *string `json:"locale,omitempty"`
-	Sort *string `json:"sort,omitempty"`
-	URL []string `json:"url,omitempty"`
-}
-
-// GetTarget implements ScrapeRequest.
-func (p *RedditUserBatchParams) GetTarget() string { return string(p.Target) }
-
-// NewRedditUserBatchParams creates a new RedditUserBatchParams with the target pre-set.
-func NewRedditUserBatchParams() *RedditUserBatchParams {
-	return &RedditUserBatchParams{Target: TargetRedditUser}
-}
-
 // TargetBatchParams contains parameters for the target target (batch mode).
 type TargetBatchParams struct {
 	Target Target `json:"target"`
@@ -1630,6 +1527,7 @@ type UniversalBatchParams struct {
 	Headless *string `json:"headless,omitempty"`
 	HTTPMethod *string `json:"http_method,omitempty"`
 	Locale *string `json:"locale,omitempty"`
+	MainContent *bool `json:"main_content,omitempty"`
 	Markdown *bool `json:"markdown,omitempty"`
 	Payload *string `json:"payload,omitempty"`
 	// ProxyPool valid values: standard, premium
@@ -1908,21 +1806,6 @@ var TargetMetaMap = map[Target]*TargetInfo{
 		ResponseFormat: "json",
 		Parameters:     []string{"callback_url", "device_type", "geo", "markdown", "parse", "prompt", "xhr"},
 	},
-	TargetRedditPost: {
-		Group:          "Reddit",
-		ResponseFormat: "json",
-		Parameters:     []string{"callback_url", "geo", "locale", "url"},
-	},
-	TargetRedditSubreddit: {
-		Group:          "Reddit",
-		ResponseFormat: "json",
-		Parameters:     []string{"callback_url", "geo", "locale", "url"},
-	},
-	TargetRedditUser: {
-		Group:          "Reddit",
-		ResponseFormat: "json",
-		Parameters:     []string{"callback_url", "geo", "locale", "sort", "url"},
-	},
 	TargetTarget: {
 		Group:          "Target",
 		ResponseFormat: "html",
@@ -1961,7 +1844,7 @@ var TargetMetaMap = map[Target]*TargetInfo{
 	TargetUniversal: {
 		Group:          "Universal",
 		ResponseFormat: "html",
-		Parameters:     []string{"callback_url", "cookies", "device_type", "force_cookies", "force_headers", "geo", "headers", "headless", "http_method", "locale", "markdown", "payload", "proxy_pool", "session_id", "successful_status_codes", "url", "xhr"},
+		Parameters:     []string{"callback_url", "cookies", "device_type", "force_cookies", "force_headers", "geo", "headers", "headless", "http_method", "locale", "main_content", "markdown", "payload", "proxy_pool", "session_id", "successful_status_codes", "url", "xhr"},
 	},
 	TargetWalmart: {
 		Group:          "Walmart",

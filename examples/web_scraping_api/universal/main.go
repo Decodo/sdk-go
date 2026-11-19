@@ -18,6 +18,7 @@ func main() {
 	params.URL = decodo.Ptr("https://www.example.com")
 	params.Geo = decodo.Ptr("United States")
 	params.Markdown = decodo.Ptr(true)
+	params.MainContent = decodo.Ptr(true)
 
 	res, err := client.WebScrapingAPI.Scrape(context.Background(), params)
 	if err != nil {
