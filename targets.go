@@ -30,9 +30,6 @@ const (
 	TargetGoogleTravelHotels Target = "google_travel_hotels"
 	TargetMobile Target = "mobile"
 	TargetPerplexity Target = "perplexity"
-	TargetRedditPost Target = "reddit_post"
-	TargetRedditSubreddit Target = "reddit_subreddit"
-	TargetRedditUser Target = "reddit_user"
 	TargetTarget Target = "target"
 	TargetTargetProduct Target = "target_product"
 	TargetTargetSearch Target = "target_search"
@@ -74,9 +71,6 @@ var Targets = []Target{
 	TargetGoogleTravelHotels,
 	TargetMobile,
 	TargetPerplexity,
-	TargetRedditPost,
-	TargetRedditSubreddit,
-	TargetRedditUser,
 	TargetTarget,
 	TargetTargetProduct,
 	TargetTargetSearch,

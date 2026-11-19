@@ -20,7 +20,7 @@ Build scraping workflows for search engines, eCommerce platforms, social media, 
 
 # What is Decodo Go SDK?
 
-Decodo Go SDK is the official Go SDK for the Decodo Web Scraping API. It provides a typed interface for interacting with Decodo targets like Google, Amazon, TikTok, Reddit, YouTube, ChatGPT, Perplexity, and more.
+Decodo Go SDK is the official Go SDK for the Decodo Web Scraping API. It provides a typed interface for interacting with Decodo targets like Google, Amazon, TikTok, YouTube, ChatGPT, Perplexity, and more.
 
 Instead of assembling HTTP requests and validating payloads by hand, you work with typed constructors and target-specific parameter structs directly in your editor.
 
@@ -541,9 +541,6 @@ Each target takes one primary input field, `URL`, `Query`, `ProductID`, or `Prom
 
 | Target | Description | Primary input | Constructor |
 | --- | --- | --- | --- |
-| `reddit_post` | Reddit post by URL | `URL` | `NewRedditPostParams()` |
-| `reddit_subreddit` | Reddit subreddit by URL | `URL` | `NewRedditSubredditParams()` |
-| `reddit_user` | Reddit user profile by URL | `URL` | `NewRedditUserParams()` |
 | `youtube_search` | YouTube search results | `Query` | `NewYoutubeSearchParams()` |
 | `youtube_metadata` | YouTube video metadata by ID | `Query` | `NewYoutubeMetadataParams()` |
 | `youtube_subtitles` | YouTube video subtitles by ID | `Query` | `NewYoutubeSubtitlesParams()` |

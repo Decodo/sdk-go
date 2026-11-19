@@ -157,6 +157,8 @@ type MapSiteResponseResultsItem struct {
 	// UTC timestamp formatted as "YYYY-MM-DD HH:MM:SS". Not RFC 3339.
 	UpdatedAt string `json:"updated_at"`
 	URL       string `json:"url"`
+	// Present when discovery was incomplete, for example the seed page or the sitemap could not be read, child sitemaps were skipped, or the sitemap file cap was hit. Absent when every source was read in full.
+	Warning string `json:"warning,omitempty"`
 }
 
 type MapSiteResponseResultsItemContent struct {
