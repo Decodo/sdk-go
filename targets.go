@@ -29,7 +29,6 @@ const (
 	TargetGoogleSearch Target = "google_search"
 	TargetGoogleTravelHotels Target = "google_travel_hotels"
 	TargetMobile Target = "mobile"
-	TargetPerplexity Target = "perplexity"
 	TargetTarget Target = "target"
 	TargetTargetProduct Target = "target_product"
 	TargetTargetSearch Target = "target_search"
@@ -70,7 +69,6 @@ var Targets = []Target{
 	TargetGoogleSearch,
 	TargetGoogleTravelHotels,
 	TargetMobile,
-	TargetPerplexity,
 	TargetTarget,
 	TargetTargetProduct,
 	TargetTargetSearch,

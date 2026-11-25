@@ -503,26 +503,6 @@ func NewMobileParams() *MobileParams {
 	return &MobileParams{Target: TargetMobile}
 }
 
-// PerplexityParams contains parameters for the perplexity target.
-type PerplexityParams struct {
-	Target Target `json:"target"`
-	CallbackURL *string `json:"callback_url,omitempty"`
-	DeviceType *string `json:"device_type,omitempty"`
-	Geo *string `json:"geo,omitempty"`
-	Markdown *bool `json:"markdown,omitempty"`
-	Parse *bool `json:"parse,omitempty"`
-	Prompt *string `json:"prompt,omitempty"`
-	XHR *bool `json:"xhr,omitempty"`
-}
-
-// GetTarget implements ScrapeRequest.
-func (p *PerplexityParams) GetTarget() string { return string(p.Target) }
-
-// NewPerplexityParams creates a new PerplexityParams with the target pre-set.
-func NewPerplexityParams() *PerplexityParams {
-	return &PerplexityParams{Target: TargetPerplexity}
-}
-
 // TargetParams contains parameters for the target target.
 type TargetParams struct {
 	Target Target `json:"target"`
@@ -1349,26 +1329,6 @@ func NewMobileBatchParams() *MobileBatchParams {
 	return &MobileBatchParams{Target: TargetMobile}
 }
 
-// PerplexityBatchParams contains parameters for the perplexity target (batch mode).
-type PerplexityBatchParams struct {
-	Target Target `json:"target"`
-	CallbackURL *string `json:"callback_url,omitempty"`
-	DeviceType *string `json:"device_type,omitempty"`
-	Geo *string `json:"geo,omitempty"`
-	Markdown *bool `json:"markdown,omitempty"`
-	Parse *bool `json:"parse,omitempty"`
-	Prompt *string `json:"prompt,omitempty"`
-	XHR *bool `json:"xhr,omitempty"`
-}
-
-// GetTarget implements ScrapeRequest.
-func (p *PerplexityBatchParams) GetTarget() string { return string(p.Target) }
-
-// NewPerplexityBatchParams creates a new PerplexityBatchParams with the target pre-set.
-func NewPerplexityBatchParams() *PerplexityBatchParams {
-	return &PerplexityBatchParams{Target: TargetPerplexity}
-}
-
 // TargetBatchParams contains parameters for the target target (batch mode).
 type TargetBatchParams struct {
 	Target Target `json:"target"`
@@ -1800,11 +1760,6 @@ var TargetMetaMap = map[Target]*TargetInfo{
 		Group:          "Marketplace",
 		ResponseFormat: "html",
 		Parameters:     []string{"callback_url", "device_type", "geo", "headless", "markdown", "url", "xhr"},
-	},
-	TargetPerplexity: {
-		Group:          "AI Tools",
-		ResponseFormat: "json",
-		Parameters:     []string{"callback_url", "device_type", "geo", "markdown", "parse", "prompt", "xhr"},
 	},
 	TargetTarget: {
 		Group:          "Target",
