@@ -20,7 +20,7 @@ Build scraping workflows for search engines, eCommerce platforms, social media, 
 
 # What is Decodo Go SDK?
 
-Decodo Go SDK is the official Go SDK for the Decodo Web Scraping API. It provides a typed interface for interacting with Decodo targets like Google, Amazon, TikTok, YouTube, ChatGPT, Perplexity, and more.
+Decodo Go SDK is the official Go SDK for the Decodo Web Scraping API. It provides a typed interface for interacting with Decodo targets like Google, Amazon, TikTok, YouTube, ChatGPT, and more.
 
 Instead of assembling HTTP requests and validating payloads by hand, you work with typed constructors and target-specific parameter structs directly in your editor.
 
@@ -411,7 +411,7 @@ func main() {
 Two details worth knowing:
 
 - **`URL` and `Query` are the fields that take multiple values**. Every other field keeps the type it has on the regular params struct.
-- **Some targets are async-only for now**. `walmart_product`, `target_product`, `tiktok_shop_product`, `chatgpt`, `gemini`, and `perplexity` aren't available through `ScrapeBatch` yet. Use `ScrapeAsync` for those.
+- **Some targets are async-only for now**. `walmart_product`, `target_product`, `tiktok_shop_product`, `chatgpt`, and `gemini` aren't available through `ScrapeBatch` yet. Use `ScrapeAsync` for those.
 - **Batch requests are limited to one per second**. How many inputs a single batch can carry depends on your plan's rate limit.
 - **Batch requests skip schema validation**. The target schema describes single values, so arrays wouldn't pass it. Parameters are still typed at compile time, but a bad value only surfaces as an API error.
 
@@ -555,7 +555,6 @@ Each target takes one primary input field, `URL`, `Query`, `ProductID`, or `Prom
 | Target | Description | Primary input | Constructor |
 | --- | --- | --- | --- |
 | `chatgpt` | ChatGPT response for a prompt | `Prompt` | `NewChatgptParams()` |
-| `perplexity` | Perplexity response for a prompt | `Prompt` | `NewPerplexityParams()` |
 | `gemini` | Gemini response for a prompt | `Prompt` | `NewGeminiParams()` |
 | `google_ai_mode` | Google AI Mode response | `Query` | `NewGoogleAiModeParams()` |
 
